@@ -5,3 +5,42 @@
 .kana-char {
   font-family: 'Noto Sans JP', sans-serif;
 }
+
+li.script-active svg,
+li.script-active span {
+  /* --tw-text-opacity: 1;
+  color: rgb(2 132 199 / var(--tw-text-opacity)); */
+  --tw-text-opacity: 1;
+  color: rgb(14 165 233 / var(--tw-text-opacity));
+  opacity: 1;
+}
+
+.dark li.script-active svg,
+.dark li.script-active span {
+  --tw-text-opacity: 1;
+  color: rgb(56 189 248 / var(--tw-text-opacity));
+  opacity: 1;
+}
+
+li.mode-active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+}
+
+.dark li.mode-active {
+  background-color: rgb(51 65 85 / 0.2);
+}
+
+li.mode-active svg,
+li.mode-active span {
+  /* --tw-text-opacity: 1;
+  color: rgb(2 132 199 / var(--tw-text-opacity)); */
+  --tw-text-opacity: 1;
+  color: rgb(14 165 233 / var(--tw-text-opacity));
+}
+
+.dark li.mode-active svg,
+.dark li.mode-active span {
+  --tw-text-opacity: 1;
+  color: rgb(56 189 248 / var(--tw-text-opacity));
+}

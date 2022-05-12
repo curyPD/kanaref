@@ -59,10 +59,10 @@
           <ul>
             <li
               data-script="hiragana"
-              class="script-active flex items-center cursor-pointer justify-between bg-slate-50 py-2 px-3 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700/20"
+              class="script-active flex cursor-pointer items-center justify-between bg-slate-50 py-2 px-3 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700/20"
             >
               <span
-                class="text-sm font-medium text-slate-800 dark:text-slate-300 dark:font-medium"
+                class="text-sm font-medium text-slate-800 dark:font-medium dark:text-slate-300"
                 >Hiragana</span
               >
               <svg
@@ -82,10 +82,10 @@
             </li>
             <li
               data-script="katakana"
-              class="flex items-center cursor-pointer justify-between bg-slate-50 py-2 px-3 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700/20"
+              class="flex cursor-pointer items-center justify-between bg-slate-50 py-2 px-3 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700/20"
             >
               <span
-                class="text-sm font-medium text-slate-800 dark:text-slate-300 dark:font-medium"
+                class="text-sm font-medium text-slate-800 dark:font-medium dark:text-slate-300"
                 >Katakana</span
               >
               <svg
@@ -101,15 +101,13 @@
                   stroke-linejoin="round"
                   d="M5 13l4 4L19 7"
                 />
+              </svg>
             </li>
           </ul>
         </div>
       </div>
       <div class="relative ml-auto">
-        <button
-          id="btn-open-modes"
-          class="flex justify-center items-center"
-        >
+        <button id="btn-open-modes" class="flex items-center justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-6 w-6 text-slate-500"
@@ -195,7 +193,7 @@
                 />
               </svg>
               <span
-                class="text-sm font-semibold text-slate-800 dark:text-slate-300"
+                class="text-sm font-medium text-slate-800 dark:text-slate-300"
                 >System</span
               >
             </li>
@@ -266,9 +264,10 @@
           </div>
           <div class="contents" id="nn-col">
             <div
+              data-char="n"
               class="relative col-start-1 col-end-2 row-start-11 row-end-12 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-12 sm:row-end-13 md:text-4xl lg:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-3"
-            > 
-              <span class="kana-char" data-char="n"> ん </span>
+            >
+              <span class="kana-char"> ん </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >n</span
@@ -277,19 +276,20 @@
           </div>
           <div class="contents" id="w-col">
             <div
+              data-char="wa"
               class="relative col-start-1 col-end-2 row-start-10 row-end-11 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-11 sm:row-end-12 md:text-4xl lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3"
-            > 
-              <span class="kana-char" data-char="wa"> わ </span>
-
+            >
+              <span class="kana-char"> わ </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >wa</span
               >
             </div>
             <div
+              data-char="wo"
               class="relative col-start-5 col-end-6 row-start-10 row-end-11 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-6 sm:col-end-7 sm:row-start-11 sm:row-end-12 md:text-4xl lg:col-start-2 lg:col-end-3 lg:row-start-6 lg:row-end-7"
-            > 
-              <span class="kana-char" data-char="wo"> を </span>
+            >
+              <span class="kana-char"> を </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >wo</span
@@ -298,45 +298,50 @@
           </div>
           <div class="contents" id="r-col">
             <div
+              data-char="ra"
               class="relative col-start-1 col-end-2 row-start-9 row-end-10 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-10 sm:row-end-11 md:text-4xl lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3"
-            > 
-              <span class="kana-char" data-char="ra"> ら </span>
+            >
+              <span class="kana-char"> ら </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >ra</span
               >
             </div>
             <div
+              data-char="ri"
               class="relative col-start-2 col-end-3 row-start-9 row-end-10 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-3 sm:col-end-4 sm:row-start-10 sm:row-end-11 md:text-4xl lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4"
-            > 
-              <span class="kana-char" data-char="ri"> り </span>
+            >
+              <span class="kana-char"> り </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >ri</span
               >
             </div>
             <div
+              data-char="ru"
               class="relative col-start-3 col-end-4 row-start-9 row-end-10 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-4 sm:col-end-5 sm:row-start-10 sm:row-end-11 md:text-4xl lg:col-start-3 lg:col-end-4 lg:row-start-4 lg:row-end-5"
-            > 
-              <span class="kana-char" data-char="ru"> る </span>
+            >
+              <span class="kana-char"> る </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >ru</span
               >
             </div>
             <div
+              data-char="re"
               class="relative col-start-4 col-end-5 row-start-9 row-end-10 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-5 sm:col-end-6 sm:row-start-10 sm:row-end-11 md:text-4xl lg:col-start-3 lg:col-end-4 lg:row-start-5 lg:row-end-6"
-            > 
-              <span class="kana-char" data-char="re"> れ </span>
+            >
+              <span class="kana-char"> れ </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >re</span
               >
             </div>
             <div
+              data-char="ro"
               class="relative col-start-5 col-end-6 row-start-9 row-end-10 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-6 sm:col-end-7 sm:row-start-10 sm:row-end-11 md:text-4xl lg:col-start-3 lg:col-end-4 lg:row-start-6 lg:row-end-7"
-            > 
-              <span class="kana-char" data-char="ro"> ろ </span>
+            >
+              <span class="kana-char"> ろ </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >ro</span
@@ -345,27 +350,30 @@
           </div>
           <div class="contents" id="y-col">
             <div
+              data-char="ya"
               class="relative col-start-1 col-end-2 row-start-8 row-end-9 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-9 sm:row-end-10 md:text-4xl lg:col-start-4 lg:col-end-5 lg:row-start-2 lg:row-end-3"
-            > 
-              <span class="kana-char" data-char="ya"> や </span>
+            >
+              <span class="kana-char"> や </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >ya</span
               >
             </div>
             <div
+              data-char="yu"
               class="relative col-start-3 col-end-4 row-start-8 row-end-9 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-4 sm:col-end-5 sm:row-start-9 sm:row-end-10 md:text-4xl lg:col-start-4 lg:col-end-5 lg:row-start-4 lg:row-end-5"
-            > 
-              <span class="kana-char" data-char="yu"> ゆ </span>
+            >
+              <span class="kana-char"> ゆ </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >yu</span
               >
             </div>
             <div
+              data-char="yo"
               class="relative col-start-5 col-end-6 row-start-8 row-end-9 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-6 sm:col-end-7 sm:row-start-9 sm:row-end-10 md:text-4xl lg:col-start-4 lg:col-end-5 lg:row-start-6 lg:row-end-7"
-            > 
-              <span class="kana-char" data-char="yo"> よ </span>
+            >
+              <span class="kana-char"> よ </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >yo</span
@@ -374,45 +382,50 @@
           </div>
           <div class="contents" id="m-col">
             <div
+              data-char="ma"
               class="relative col-start-1 col-end-2 row-start-7 row-end-8 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-8 sm:row-end-9 md:text-4xl lg:col-start-5 lg:col-end-6 lg:row-start-2 lg:row-end-3"
-            > 
-              <span class="kana-char" data-char="ma"> ま </span>
+            >
+              <span class="kana-char"> ま </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >ma</span
               >
             </div>
             <div
+              data-char="mi"
               class="relative col-start-2 col-end-3 row-start-7 row-end-8 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-3 sm:col-end-4 sm:row-start-8 sm:row-end-9 md:text-4xl lg:col-start-5 lg:col-end-6 lg:row-start-3 lg:row-end-4"
-            > 
-              <span class="kana-char" data-char="mi"> み </span>
+            >
+              <span class="kana-char"> み </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >mi</span
               >
             </div>
             <div
+              data-char="mu"
               class="relative col-start-3 col-end-4 row-start-7 row-end-8 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-4 sm:col-end-5 sm:row-start-8 sm:row-end-9 md:text-4xl lg:col-start-5 lg:col-end-6 lg:row-start-4 lg:row-end-5"
-            > 
-              <span class="kana-char" data-char="mu"> む </span>
+            >
+              <span class="kana-char"> む </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >mu</span
               >
             </div>
             <div
+              data-char="me"
               class="relative col-start-4 col-end-5 row-start-7 row-end-8 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-5 sm:col-end-6 sm:row-start-8 sm:row-end-9 md:text-4xl lg:col-start-5 lg:col-end-6 lg:row-start-5 lg:row-end-6"
-            > 
-              <span class="kana-char" data-char="me"> め </span>
+            >
+              <span class="kana-char"> め </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >me</span
               >
             </div>
             <div
+              data-char="mo"
               class="relative col-start-5 col-end-6 row-start-7 row-end-8 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-6 sm:col-end-7 sm:row-start-8 sm:row-end-9 md:text-4xl lg:col-start-5 lg:col-end-6 lg:row-start-6 lg:row-end-7"
-            > 
-              <span class="kana-char" data-char="mo"> も </span>
+            >
+              <span class="kana-char"> も </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >mo</span
@@ -421,45 +434,50 @@
           </div>
           <div class="contents" id="h-col">
             <div
+              data-char="ha"
               class="relative col-start-1 col-end-2 row-start-6 row-end-7 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-7 sm:row-end-8 md:text-4xl lg:col-start-6 lg:col-end-7 lg:row-start-2 lg:row-end-3"
-            > 
-              <span class="kana-char" data-char="ha"> は </span>
+            >
+              <span class="kana-char"> は </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >ha</span
               >
             </div>
             <div
+              data-char="hi"
               class="relative col-start-2 col-end-3 row-start-6 row-end-7 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-3 sm:col-end-4 sm:row-start-7 sm:row-end-8 md:text-4xl lg:col-start-6 lg:col-end-7 lg:row-start-3 lg:row-end-4"
-            > 
-              <span class="kana-char" data-char="hi"> ひ </span>
+            >
+              <span class="kana-char"> ひ </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >hi</span
               >
             </div>
             <div
+              data-char="fu"
               class="relative col-start-3 col-end-4 row-start-6 row-end-7 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-4 sm:col-end-5 sm:row-start-7 sm:row-end-8 md:text-4xl lg:col-start-6 lg:col-end-7 lg:row-start-4 lg:row-end-5"
-            > 
-              <span class="kana-char" data-char="fu"> ふ </span>
+            >
+              <span class="kana-char"> ふ </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >fu</span
               >
             </div>
             <div
+              data-char="he"
               class="relative col-start-4 col-end-5 row-start-6 row-end-7 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-5 sm:col-end-6 sm:row-start-7 sm:row-end-8 md:text-4xl lg:col-start-6 lg:col-end-7 lg:row-start-5 lg:row-end-6"
-            > 
-              <span class="kana-char" data-char="he"> へ </span>
+            >
+              <span class="kana-char"> へ </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >he</span
               >
             </div>
             <div
+              data-char="ho"
               class="relative col-start-5 col-end-6 row-start-6 row-end-7 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-6 sm:col-end-7 sm:row-start-7 sm:row-end-8 md:text-4xl lg:col-start-6 lg:col-end-7 lg:row-start-6 lg:row-end-7"
-            > 
-              <span class="kana-char" data-char="ho"> ほ </span>
+            >
+              <span class="kana-char"> ほ </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >ho</span
@@ -468,45 +486,50 @@
           </div>
           <div class="contents" id="n-col">
             <div
+              data-char="na"
               class="relative col-start-1 col-end-2 row-start-5 row-end-6 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-6 sm:row-end-7 md:text-4xl lg:col-start-7 lg:col-end-8 lg:row-start-2 lg:row-end-3"
-            > 
-              <span class="kana-char" data-char="na"> な </span>
+            >
+              <span class="kana-char"> な </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >na</span
               >
             </div>
             <div
+              data-char="ni"
               class="relative col-start-2 col-end-3 row-start-5 row-end-6 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-3 sm:col-end-4 sm:row-start-6 sm:row-end-7 md:text-4xl lg:col-start-7 lg:col-end-8 lg:row-start-3 lg:row-end-4"
-            > 
-              <span class="kana-char" data-char="ni"> に </span>
+            >
+              <span class="kana-char"> に </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >ni</span
               >
             </div>
             <div
+              data-char="nu"
               class="relative col-start-3 col-end-4 row-start-5 row-end-6 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-4 sm:col-end-5 sm:row-start-6 sm:row-end-7 md:text-4xl lg:col-start-7 lg:col-end-8 lg:row-start-4 lg:row-end-5"
-            > 
-              <span class="kana-char" data-char="nu"> ぬ </span>
+            >
+              <span class="kana-char"> ぬ </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >nu</span
               >
             </div>
             <div
+              data-char="ne"
               class="relative col-start-4 col-end-5 row-start-5 row-end-6 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-5 sm:col-end-6 sm:row-start-6 sm:row-end-7 md:text-4xl lg:col-start-7 lg:col-end-8 lg:row-start-5 lg:row-end-6"
-            > 
-              <span class="kana-char" data-char="ne"> ね </span>
+            >
+              <span class="kana-char"> ね </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >ne</span
               >
             </div>
             <div
+              data-char="no"
               class="relative col-start-5 col-end-6 row-start-5 row-end-6 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-6 sm:col-end-7 sm:row-start-6 sm:row-end-7 md:text-4xl lg:col-start-7 lg:col-end-8 lg:row-start-6 lg:row-end-7"
-            > 
-              <span class="kana-char" data-char="no"> の </span>
+            >
+              <span class="kana-char"> の </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >no</span
@@ -515,45 +538,50 @@
           </div>
           <div class="contents" id="t-col">
             <div
+              data-char="ta"
               class="relative col-start-1 col-end-2 row-start-4 row-end-5 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-5 sm:row-end-6 md:text-4xl lg:col-start-8 lg:col-end-9 lg:row-start-2 lg:row-end-3"
-            > 
-              <span class="kana-char" data-char="ta"> た </span>
+            >
+              <span class="kana-char"> た </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >ta</span
               >
             </div>
             <div
+              data-char="chi"
               class="relative col-start-2 col-end-3 row-start-4 row-end-5 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-3 sm:col-end-4 sm:row-start-5 sm:row-end-6 md:text-4xl lg:col-start-8 lg:col-end-9 lg:row-start-3 lg:row-end-4"
-            > 
-              <span class="kana-char" data-char="chi"> ち </span>
+            >
+              <span class="kana-char"> ち </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >chi</span
               >
             </div>
             <div
+              data-char="tsu"
               class="relative col-start-3 col-end-4 row-start-4 row-end-5 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-4 sm:col-end-5 sm:row-start-5 sm:row-end-6 md:text-4xl lg:col-start-8 lg:col-end-9 lg:row-start-4 lg:row-end-5"
-            > 
-              <span class="kana-char" data-char="tsu"> つ </span>
+            >
+              <span class="kana-char"> つ </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >tsu</span
               >
             </div>
             <div
+              data-char="te"
               class="relative col-start-4 col-end-5 row-start-4 row-end-5 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-5 sm:col-end-6 sm:row-start-5 sm:row-end-6 md:text-4xl lg:col-start-8 lg:col-end-9 lg:row-start-5 lg:row-end-6"
-            > 
-              <span class="kana-char" data-char="te"> て </span>
+            >
+              <span class="kana-char"> て </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >te</span
               >
             </div>
             <div
+              data-char="to"
               class="relative col-start-5 col-end-6 row-start-4 row-end-5 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-6 sm:col-end-7 sm:row-start-5 sm:row-end-6 md:text-4xl lg:col-start-8 lg:col-end-9 lg:row-start-6 lg:row-end-7"
-            > 
-              <span class="kana-char" data-char="to"> と </span>
+            >
+              <span class="kana-char"> と </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >to</span
@@ -562,45 +590,51 @@
           </div>
           <div class="contents" id="s-col">
             <div
+              data-char="sa"
               class="relative col-start-1 col-end-2 row-start-3 row-end-4 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-4 sm:row-end-5 md:text-4xl lg:col-start-9 lg:col-end-10 lg:row-start-2 lg:row-end-3"
-            > 
-              <span class="kana-char" data-char="sa"> さ </span>
+            >
+              <span class="kana-char"> さ </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >sa</span
               >
             </div>
             <div
+              data-char="shi"
               class="relative col-start-2 col-end-3 row-start-3 row-end-4 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-3 sm:col-end-4 sm:row-start-4 sm:row-end-5 md:text-4xl lg:col-start-9 lg:col-end-10 lg:row-start-3 lg:row-end-4"
-            > 
-              <span class="kana-char" data-char="shi"> し </span>
+            >
+              <span class="kana-char"> し </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >shi</span
               >
             </div>
             <div
+              data-char="su"
               class="relative col-start-3 col-end-4 row-start-3 row-end-4 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-4 sm:col-end-5 sm:row-start-4 sm:row-end-5 md:text-4xl lg:col-start-9 lg:col-end-10 lg:row-start-4 lg:row-end-5"
-            > 
-              <span class="kana-char" data-char="su"> す </span>
+            >
+              <span class="kana-char"> す </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >su</span
               >
             </div>
+
             <div
+              data-char="se"
               class="relative col-start-4 col-end-5 row-start-3 row-end-4 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-5 sm:col-end-6 sm:row-start-4 sm:row-end-5 md:text-4xl lg:col-start-9 lg:col-end-10 lg:row-start-5 lg:row-end-6"
-            > 
-              <span class="kana-char" data-char="se"> せ </span>
+            >
+              <span class="kana-char"> せ </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >se</span
               >
             </div>
             <div
+              data-char="so"
               class="relative col-start-5 col-end-6 row-start-3 row-end-4 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-6 sm:col-end-7 sm:row-start-4 sm:row-end-5 md:text-4xl lg:col-start-9 lg:col-end-10 lg:row-start-6 lg:row-end-7"
-            > 
-              <span class="kana-char" data-char="so"> そ </span>
+            >
+              <span class="kana-char"> そ </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >so</span
@@ -609,45 +643,50 @@
           </div>
           <div class="contents" id="k-col">
             <div
+              data-char="ka"
               class="relative col-start-1 col-end-2 row-start-2 row-end-3 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-3 sm:row-end-4 md:text-4xl lg:col-start-10 lg:col-end-11 lg:row-start-2 lg:row-end-3"
-            > 
-              <span class="kana-char" data-char="ka"> か </span>
+            >
+              <span class="kana-char"> か </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >ka</span
               >
             </div>
             <div
+              data-char="ki"
               class="relative col-start-2 col-end-3 row-start-2 row-end-3 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-3 sm:col-end-4 sm:row-start-3 sm:row-end-4 md:text-4xl lg:col-start-10 lg:col-end-11 lg:row-start-3 lg:row-end-4"
-            > 
-              <span class="kana-char" data-char="ki"> き </span>
+            >
+              <span class="kana-char"> き </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >ki</span
               >
             </div>
             <div
+              data-char="ku"
               class="relative col-start-3 col-end-4 row-start-2 row-end-3 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-4 sm:col-end-5 sm:row-start-3 sm:row-end-4 md:text-4xl lg:col-start-10 lg:col-end-11 lg:row-start-4 lg:row-end-5"
-            > 
-              <span class="kana-char" data-char="ku"> く </span>
+            >
+              <span class="kana-char"> く </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >ku</span
               >
             </div>
             <div
+              data-char="ke"
               class="relative col-start-4 col-end-5 row-start-2 row-end-3 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-5 sm:col-end-6 sm:row-start-3 sm:row-end-4 md:text-4xl lg:col-start-10 lg:col-end-11 lg:row-start-5 lg:row-end-6"
-            > 
-              <span class="kana-char" data-char="ke"> け </span>
+            >
+              <span class="kana-char"> け </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >ke</span
               >
             </div>
             <div
+              data-char="ko"
               class="relative col-start-5 col-end-6 row-start-2 row-end-3 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-6 sm:col-end-7 sm:row-start-3 sm:row-end-4 md:text-4xl lg:col-start-10 lg:col-end-11 lg:row-start-6 lg:row-end-7"
-            > 
-              <span class="kana-char" data-char="ko"> こ </span>
+            >
+              <span class="kana-char"> こ </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >ko</span
@@ -656,45 +695,50 @@
           </div>
           <div class="contents" id="a-col">
             <div
+              data-char="a"
               class="relative col-start-1 col-end-2 row-start-1 row-end-2 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-2 sm:row-end-3 md:text-4xl lg:col-start-11 lg:col-end-12 lg:row-start-2 lg:row-end-3"
-            > 
-              <span class="kana-char" data-char="a"> あ </span>
+            >
+              <span class="kana-char"> あ </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >a</span
               >
             </div>
             <div
+              data-char="i"
               class="relative col-start-2 col-end-3 row-start-1 row-end-2 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-3 sm:col-end-4 sm:row-start-2 sm:row-end-3 md:text-4xl lg:col-start-11 lg:col-end-12 lg:row-start-3 lg:row-end-4"
-            > 
-              <span class="kana-char" data-char="i"> い </span>
+            >
+              <span class="kana-char"> い </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >i</span
               >
             </div>
             <div
+              data-char="u"
               class="relative col-start-3 col-end-4 row-start-1 row-end-2 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-4 sm:col-end-5 sm:row-start-2 sm:row-end-3 md:text-4xl lg:col-start-11 lg:col-end-12 lg:row-start-4 lg:row-end-5"
-            > 
-              <span class="kana-char" data-char="u"> う </span>
+            >
+              <span class="kana-char"> う </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >u</span
               >
             </div>
             <div
+              data-char="e"
               class="relative col-start-4 col-end-5 row-start-1 row-end-2 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-5 sm:col-end-6 sm:row-start-2 sm:row-end-3 md:text-4xl lg:col-start-11 lg:col-end-12 lg:row-start-5 lg:row-end-6"
-            > 
-              <span class="kana-char" data-char="e"> え </span>
+            >
+              <span class="kana-char"> え </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >e</span
               >
             </div>
             <div
+              data-char="o"
               class="relative col-start-5 col-end-6 row-start-1 row-end-2 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-6 sm:col-end-7 sm:row-start-2 sm:row-end-3 md:text-4xl lg:col-start-11 lg:col-end-12 lg:row-start-6 lg:row-end-7"
-            > 
-              <span class="kana-char" data-char="o"> お </span>
+            >
+              <span class="kana-char"> お </span>
               <span
                 class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500"
                 >o</span
@@ -733,13 +777,13 @@
     </section>
     <div
       id="overlay"
-      class="fixed top-0 left-0  h-full w-full bg-gray-400/30 backdrop-blur-sm dark:bg-slate-900/60"
+      class="fixed top-0 left-0 hidden h-full w-full bg-gray-400/30 backdrop-blur-sm dark:bg-slate-900/60"
     ></div>
     <div
       id="modal"
-      class="fixed top-1/2 left-1/2  w-11/12 max-w-xl -translate-y-1/2 -translate-x-1/2 rounded-xl bg-white p-6 shadow-lg dark:bg-slate-800"
+      class="fixed top-1/2 left-1/2 hidden w-11/12 max-w-xl -translate-y-1/2 -translate-x-1/2 rounded-xl bg-white p-6 shadow-lg dark:bg-slate-800"
     >
-      <button
+      <!-- <button
         id="btn-close-modal"
         class="absolute top-0 right-0 -translate-x-2 translate-y-2"
       >
@@ -785,9 +829,9 @@
       </form>
       <div class="mb-6 sm:flex sm:items-center sm:space-x-8">
         <div
-          class="mb-9 rounded-xl bg-slate-100 px-4 py-5 text-center dark:bg-slate-700 sm:mb-0"
+          class="mb-9 rounded-xl bg-slate-200 px-4 py-5 text-center dark:bg-slate-700 sm:mb-0"
         >
-          <p 
+          <p
             class="kana-char cursor-default text-8xl font-medium text-slate-800 dark:text-slate-50 md:text-9xl"
           >
             あ
@@ -795,9 +839,9 @@
         </div>
         <div class="text-center sm:text-left">
           <p
-            class="mb-5 text-base leading-relaxed text-slate-800 dark:text-slate-300"
+            class="mb-5 text-base leading-loose text-slate-800 dark:text-slate-300"
           >
-            <span 
+            <span
               class="kana-char rounded bg-slate-100 px-2 py-1 text-xl font-semibold text-sky-600 dark:bg-slate-900 dark:font-normal dark:text-sky-400 md:text-xl"
               >あ</span
             >
@@ -806,29 +850,42 @@
               >a</span
             >r"
           </p>
-          
+          <div
+            class="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:justify-between sm:space-y-0"
+          >
+            <figure class="flex items-center space-x-3">
+              <button
+                class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-300 hover:bg-slate-300/80 dark:bg-slate-900 dark:hover:bg-slate-900/80"
+              >
+                <i
+                  class="ph-play-fill text-xl text-slate-900 dark:text-lg dark:text-slate-300"
+                ></i>
+              </button>
 
-            <figure
-            class="flex items-center justify-center space-x-5 sm:justify-start"
-            >
-            <button
-              class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-300 hover:bg-slate-300/80 dark:bg-slate-900 dark:hover:bg-slate-900/80"
-            >
-              <i
-                class="ph-play-fill text-xl text-slate-900 dark:text-lg dark:text-slate-300"
-              ></i>
-            </button>
-
-            <!-- <audio controls src="audio/kanasound-a.mp3"></audio> -->
+              <audio controls src="audio/kanasound-a.mp3"></audio>
 
               <figcaption class="flex flex-col space-y-1">
                 <p class="kana-char text-slate-800 dark:text-slate-300">あ</p>
                 <p class="text-center text-slate-800 dark:text-slate-300">A</p>
               </figcaption>
             </figure>
-          
+            <div id="variations" class="flex items-center space-x-3">
+              <p class="text-sm text-slate-500">Variations:</p>
+              <div class="flex space-x-1">
+                <span
+                  class="kana-char cursor-pointer rounded px-1 py-1 text-lg font-semibold text-slate-600 hover:text-slate-500 dark:font-normal dark:text-slate-300 dark:hover:text-slate-200 md:text-xl"
+                  >あ</span
+                >
+                <span
+                  class="kana-char cursor-pointer rounded px-1 py-1 text-lg font-semibold text-slate-600 hover:text-slate-500 dark:font-normal dark:text-slate-300 dark:hover:text-slate-200 md:text-xl"
+                  >あ</span
+                >
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
       <footer
         class="flex flex-col space-y-3 border-t border-slate-200 pt-3 dark:border-slate-700 md:flex-row md:items-center md:justify-between md:space-y-0"
       >
@@ -846,7 +903,7 @@
             Katakana version
           </button>
         </p>
-      </footer>
+      </footer> -->
     </div>
   </body>
 </html>

@@ -1,7 +1,12 @@
 import { modal } from './chartView.js';
+const heroForm = document.getElementById('hero-form');
 
 export const addHandlerFormInput = function (handler) {
   modal.addEventListener('input', handler);
+};
+
+export const addHandlerFormSubmit = function (handler) {
+  [modal, heroForm].forEach(el => el.addEventListener('submit', handler));
 };
 
 export const renderSearchResults = function (characters, script) {
@@ -34,3 +39,11 @@ const generateMarkup = function (characters, script) {
   html += '</ul>';
   return html;
 };
+
+heroForm.addEventListener('focusin', function () {
+  this.classList.add('outline', 'outline-2', 'outline-sky-500');
+});
+
+heroForm.addEventListener('focusout', function () {
+  this.classList.remove('outline', 'outline-2', 'outline-sky-500');
+});

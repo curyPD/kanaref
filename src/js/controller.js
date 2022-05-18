@@ -3,12 +3,21 @@ import * as scriptPopupView from './views/scriptPopupView.js';
 import * as chartView from './views/chartView.js';
 import * as searchView from './views/searchView.js';
 import * as model from './model.js';
+import './views/navView.js';
+import './views/yearView.js';
 
 const controlDisplayTheme = function () {
   model.setThemeOnLoad();
   const { theme } = model.state;
   modeView.displayTheme(theme, !('theme' in localStorage));
   localStorage.setItem('theme', theme);
+};
+
+const controlDisplayScript = function () {
+  model.setScriptOnLoad();
+  const { script } = model.state;
+  scriptPopupView.displayScriptInPopup(script);
+  chartView.displayScript(model.state);
 };
 
 const controlSwitchMode = function (e) {
@@ -84,8 +93,35 @@ const controlFormInput = function (e) {
     )
     .map(result => model.state.characters[result[0]]);
 
-  console.log(results);
   searchView.renderSearchResults(results, model.state.script);
+};
+
+const controlFormSubmit = function (e) {
+  e.preventDefault();
+  const inputEl = e.target.querySelector('input');
+  const input = inputEl.value.toLowerCase();
+  if (!input) return;
+  inputEl.value = '';
+  if (
+    model.state.characters[input] ||
+    Object.entries(model.state.characters).some(
+      entry => entry[1].romaji === input
+    )
+  ) {
+    model.state.curLearningChar = model.state.characters[input];
+    chartView.displayModal(model.state.curLearningChar, model.state.script);
+    return;
+  }
+  const results = Object.entries(model.state.characters)
+    .filter(
+      entry => entry[0].includes(input) || entry[1].romaji.includes(input)
+    )
+    .map(result => model.state.characters[result[0]]);
+  if (results.length > 0) {
+    model.state.curLearningChar = results[0];
+    chartView.displayModal(model.state.curLearningChar, model.state.script);
+    return;
+  }
 };
 
 const init = function () {
@@ -97,7 +133,9 @@ const init = function () {
   chartView.addHandlerSeeKanaVersion(controlSeeKanaVersion);
   chartView.addHandlerModalCharClick(controlModalCharClick);
   searchView.addHandlerFormInput(controlFormInput);
+  searchView.addHandlerFormSubmit(controlFormSubmit);
   controlDisplayTheme();
+  controlDisplayScript();
   model.setAudioProperties();
 };
 init();

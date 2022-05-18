@@ -588,3 +588,13 @@ export const setThemeOnLoad = function () {
     state.theme = 'light';
   }
 };
+
+export const setScriptOnLoad = function () {
+  if (localStorage.script === 'katakana') {
+    state.script = 'katakana';
+  }
+  if (!('script' in localStorage) || localStorage.script === 'hiragana') {
+    state.script = 'hiragana';
+    localStorage.script = 'hiragana';
+  }
+};

@@ -28,6 +28,9 @@ module.exports = {
         13: '13',
         14: '14',
       },
+      lineHeight: {
+        close: 1.05,
+      },
     },
   },
 

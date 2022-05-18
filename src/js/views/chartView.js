@@ -1,5 +1,7 @@
+const chartSection = document.getElementById('chart-section');
 const chart = document.getElementById('chart');
 const heading = document.getElementById('heading-primary');
+const btnSeeChart = document.getElementById('btn-see-chart');
 const overlay = document.getElementById('overlay');
 export const modal = document.getElementById('modal');
 
@@ -247,3 +249,7 @@ export const displayModal = function (character, script) {
   openModal();
   controlAudio();
 };
+
+btnSeeChart.addEventListener('click', function () {
+  chartSection.scrollIntoView({ behavior: 'smooth' });
+});

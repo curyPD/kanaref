@@ -8,8 +8,6 @@
 
 li.script-active svg,
 li.script-active span {
-  /* --tw-text-opacity: 1;
-  color: rgb(2 132 199 / var(--tw-text-opacity)); */
   --tw-text-opacity: 1;
   color: rgb(14 165 233 / var(--tw-text-opacity));
   opacity: 1;
@@ -33,8 +31,6 @@ li.mode-active {
 
 li.mode-active svg,
 li.mode-active span {
-  /* --tw-text-opacity: 1;
-  color: rgb(2 132 199 / var(--tw-text-opacity)); */
   --tw-text-opacity: 1;
   color: rgb(14 165 233 / var(--tw-text-opacity));
 }

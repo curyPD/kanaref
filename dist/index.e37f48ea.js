@@ -531,11 +531,19 @@ var _scriptPopupViewJs = require("./views/scriptPopupView.js");
 var _chartViewJs = require("./views/chartView.js");
 var _searchViewJs = require("./views/searchView.js");
 var _modelJs = require("./model.js");
+var _navViewJs = require("./views/navView.js");
+var _yearViewJs = require("./views/yearView.js");
 const controlDisplayTheme = function() {
     _modelJs.setThemeOnLoad();
     const { theme  } = _modelJs.state;
     _modeViewJs.displayTheme(theme, !('theme' in localStorage));
     localStorage.setItem('theme', theme);
+};
+const controlDisplayScript = function() {
+    _modelJs.setScriptOnLoad();
+    const { script  } = _modelJs.state;
+    _scriptPopupViewJs.displayScriptInPopup(script);
+    _chartViewJs.displayScript(_modelJs.state);
 };
 const controlSwitchMode = function(e) {
     const li = e.target.closest('li');
@@ -592,8 +600,28 @@ const controlFormInput = function(e) {
     const results = Object.entries(_modelJs.state.characters).filter((entry)=>(entry[0].includes(input) || entry[1].romaji.includes(input)) && input !== ''
     ).map((result)=>_modelJs.state.characters[result[0]]
     );
-    console.log(results);
     _searchViewJs.renderSearchResults(results, _modelJs.state.script);
+};
+const controlFormSubmit = function(e) {
+    e.preventDefault();
+    const inputEl = e.target.querySelector('input');
+    const input = inputEl.value.toLowerCase();
+    if (!input) return;
+    inputEl.value = '';
+    if (_modelJs.state.characters[input] || Object.entries(_modelJs.state.characters).some((entry)=>entry[1].romaji === input
+    )) {
+        _modelJs.state.curLearningChar = _modelJs.state.characters[input];
+        _chartViewJs.displayModal(_modelJs.state.curLearningChar, _modelJs.state.script);
+        return;
+    }
+    const results = Object.entries(_modelJs.state.characters).filter((entry)=>entry[0].includes(input) || entry[1].romaji.includes(input)
+    ).map((result)=>_modelJs.state.characters[result[0]]
+    );
+    if (results.length > 0) {
+        _modelJs.state.curLearningChar = results[0];
+        _chartViewJs.displayModal(_modelJs.state.curLearningChar, _modelJs.state.script);
+        return;
+    }
 };
 const init = function() {
     _modeViewJs.addEventHandlers();
@@ -604,12 +632,14 @@ const init = function() {
     _chartViewJs.addHandlerSeeKanaVersion(controlSeeKanaVersion);
     _chartViewJs.addHandlerModalCharClick(controlModalCharClick);
     _searchViewJs.addHandlerFormInput(controlFormInput);
+    _searchViewJs.addHandlerFormSubmit(controlFormSubmit);
     controlDisplayTheme();
+    controlDisplayScript();
     _modelJs.setAudioProperties();
 };
 init();
 
-},{"./views/modeView.js":"3nARV","./views/scriptPopupView.js":"8yEI2","./views/chartView.js":"icslX","./views/searchView.js":"9OQAM","./model.js":"Y4A21"}],"3nARV":[function(require,module,exports) {
+},{"./views/modeView.js":"3nARV","./views/scriptPopupView.js":"8yEI2","./views/chartView.js":"icslX","./views/searchView.js":"9OQAM","./model.js":"Y4A21","./views/navView.js":"82Kie","./views/yearView.js":"h1NOz"}],"3nARV":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "addEventHandlers", ()=>addEventHandlers
@@ -778,8 +808,10 @@ parcelHelpers.export(exports, "addHandlerModalCharClick", ()=>addHandlerModalCha
 );
 parcelHelpers.export(exports, "displayModal", ()=>displayModal
 );
+const chartSection = document.getElementById('chart-section');
 const chart = document.getElementById('chart');
 const heading = document.getElementById('heading-primary');
+const btnSeeChart = document.getElementById('btn-see-chart');
 const overlay = document.getElementById('overlay');
 const modal = document.getElementById('modal');
 const openModal = function() {
@@ -994,17 +1026,32 @@ const displayModal = function(character, script) {
     openModal();
     controlAudio();
 };
+btnSeeChart.addEventListener('click', function() {
+    chartSection.scrollIntoView({
+        behavior: 'smooth'
+    });
+});
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9OQAM":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "addHandlerFormInput", ()=>addHandlerFormInput
 );
+parcelHelpers.export(exports, "addHandlerFormSubmit", ()=>addHandlerFormSubmit
+);
 parcelHelpers.export(exports, "renderSearchResults", ()=>renderSearchResults
 );
 var _chartViewJs = require("./chartView.js");
+const heroForm = document.getElementById('hero-form');
 const addHandlerFormInput = function(handler) {
     _chartViewJs.modal.addEventListener('input', handler);
+};
+const addHandlerFormSubmit = function(handler) {
+    [
+        _chartViewJs.modal,
+        heroForm
+    ].forEach((el)=>el.addEventListener('submit', handler)
+    );
 };
 const renderSearchResults = function(characters, script) {
     const html = generateMarkup(characters, script);
@@ -1030,6 +1077,12 @@ const generateMarkup = function(characters, script) {
     html += '</ul>';
     return html;
 };
+heroForm.addEventListener('focusin', function() {
+    this.classList.add('outline', 'outline-2', 'outline-sky-500');
+});
+heroForm.addEventListener('focusout', function() {
+    this.classList.remove('outline', 'outline-2', 'outline-sky-500');
+});
 
 },{"./chartView.js":"icslX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Y4A21":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -1039,6 +1092,8 @@ parcelHelpers.export(exports, "setAudioProperties", ()=>setAudioProperties
 parcelHelpers.export(exports, "state", ()=>state
 );
 parcelHelpers.export(exports, "setThemeOnLoad", ()=>setThemeOnLoad
+);
+parcelHelpers.export(exports, "setScriptOnLoad", ()=>setScriptOnLoad
 );
 var _audioLibraryJs = require("./audioLibrary.js");
 const setAudioProperties = function() {
@@ -1725,6 +1780,13 @@ const setThemeOnLoad = function() {
     if (localStorage.theme === 'dark' || !('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) state.theme = 'dark';
     else state.theme = 'light';
 };
+const setScriptOnLoad = function() {
+    if (localStorage.script === 'katakana') state.script = 'katakana';
+    if (!('script' in localStorage) || localStorage.script === 'hiragana') {
+        state.script = 'hiragana';
+        localStorage.script = 'hiragana';
+    }
+};
 
 },{"./audioLibrary.js":"atphX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"atphX":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -2261,6 +2323,34 @@ module.exports = require('./helpers/bundle-url').getBundleURL('hWUTQ') + "kanaso
 },{"./helpers/bundle-url":"lgJ39"}],"lFYZC":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('hWUTQ') + "kanasound-po.c57209d6.mp3" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"lgJ39"}]},["9GjUt","aenu9"], "aenu9", "parcelRequirec3d2")
+},{"./helpers/bundle-url":"lgJ39"}],"82Kie":[function(require,module,exports) {
+const nav = document.getElementById('nav');
+const h1 = document.querySelector('h1');
+const options = {
+    root: null,
+    threshold: 1
+};
+const callback = function(entries, observer) {
+    entries.forEach((entry)=>{
+        console.log(entry);
+        if (!entry.isIntersecting) nav.classList.add('sticky', 'top-0', 'z-30', 'bg-slate-50/90', 'dark:bg-slate-900/90');
+        nav.classList.remove('bg-slate-50', 'dark:bg-slate-900');
+        if (entry.isIntersecting) nav.classList.remove('sticky', 'top-0', 'z-30', 'bg-slate-50/90', 'dark:bg-slate-900/90');
+        nav.classList.add('bg-slate-50', 'dark:bg-slate-900');
+    });
+};
+const observer = new IntersectionObserver(callback, options);
+observer.observe(h1);
+
+},{}],"h1NOz":[function(require,module,exports) {
+const yearText = document.getElementById('year');
+const now = new Date();
+const year = now.getFullYear();
+const setCurrentYear = function() {
+    yearText.textContent = year;
+};
+setCurrentYear();
+
+},{}]},["9GjUt","aenu9"], "aenu9", "parcelRequirec3d2")
 
 //# sourceMappingURL=index.e37f48ea.js.map

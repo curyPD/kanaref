@@ -1,1 +1,501 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/index.dccd0d49.css"><script type="module" defer src="/index.51d7f422.js"></script><title>Kanaref</title></head><body> <nav id="nav" class="bg-slate-50 border-b border-slate-300 dark:bg-slate-900 dark:border-slate-800 flex items-center md:px-14 px-4 py-3"> <div id="logo" class="flex items-center md:mr-8 mr-6 space-x-3"> <img src="/logo.294ca5a4.svg" alt="Japanese Hiragana A" class="h-7"> <span class="dark:text-slate-100 font-medium hidden sm:block text-2xl text-slate-800">kanaref</span> </div> <div class="relative"> <button id="btn-open-scripts" class="bg-slate-200/70 border-t border-transparent dark:bg-slate-300/10 dark:border-slate-700 dark:hover:bg-slate-400/20 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-200 items-center px-4 py-2 relative rounded-full space-x-1"> <span class="dark:text-slate-400 font-medium text-slate-700 text-xs">Hiragana</span> <svg class="h-3 w-3 text-slate-700 dark:text-slate-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7"/></svg> </button> <div id="scripts-box" class="absolute bg-slate-50 border border-slate-300 dark:bg-slate-800 dark:border-slate-700 hidden left-0 py-1 rounded-lg shadow-md top-full translate-y-6 w-36"> <ul> <li data-script="hiragana" class="bg-slate-50 cursor-pointer dark:bg-slate-800 dark:hover:bg-slate-700/20 flex hover:bg-slate-100 items-center justify-between px-3 py-2 script-active"> <span class="dark:font-medium dark:text-slate-300 font-medium text-slate-800 text-sm">Hiragana</span> <svg class="h-5 w-5 opacity-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7"/></svg> </li> <li data-script="katakana" class="bg-slate-50 cursor-pointer dark:bg-slate-800 dark:hover:bg-slate-700/20 flex hover:bg-slate-100 items-center justify-between px-3 py-2"> <span class="dark:font-medium dark:text-slate-300 font-medium text-slate-800 text-sm">Katakana</span> <svg class="h-5 w-5 opacity-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7"/></svg> </li> </ul> </div> </div> <div class="ml-auto relative"> <button id="btn-open-modes" class="flex focus:outline-none focus:ring-2 focus:ring-sky-500 items-center justify-center"> <svg class="h-6 w-6 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364-.707-.707M6.343 6.343l-.707-.707m12.728 0-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/></svg> </button> <div id="modes-box" class="-translate-x-32 absolute bg-slate-50 border border-slate-300 dark:bg-slate-800 dark:border-slate-700 hidden left-0 md:-translate-x-2/3 py-1 rounded-lg shadow-md top-full translate-y-6 w-36"> <ul> <li data-theme="light" class="bg-slate-50 cursor-pointer dark:bg-slate-800 dark:hover:bg-slate-700/20 flex hover:bg-slate-100 px-3 py-2 space-x-3"> <svg class="h-5 w-5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364-.707-.707M6.343 6.343l-.707-.707m12.728 0-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/></svg> <span class="dark:text-slate-300 font-medium text-slate-800 text-sm">Light</span> </li> <li data-theme="dark" class="bg-slate-50 cursor-pointer dark:bg-slate-800 dark:hover:bg-slate-700/20 flex hover:bg-slate-100 px-3 py-2 space-x-3"> <svg class="h-5 w-5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 0 1 8.646 3.646 9.003 9.003 0 0 0 12 21a9.003 9.003 0 0 0 8.354-5.646z"/></svg> <span class="dark:text-slate-300 font-medium text-slate-800 text-sm">Dark</span> </li> <li data-theme="system" class="bg-slate-50 cursor-pointer dark:bg-slate-800 dark:hover:bg-slate-700/20 flex hover:bg-slate-100 mode-active px-3 py-2 space-x-3"> <svg class="h-5 w-5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17 9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/></svg> <span class="dark:text-slate-300 font-medium text-slate-800 text-sm">System</span> </li> </ul> </div> </div> </nav> <section id="hero" class="bg-slate-50 dark:bg-slate-900 lg:pt-24 pb-12 pt-16"> <div class="max-w-5xl mx-auto px-8"> <h1 class="dark:text-slate-200 font-bold lg:leading-close lg:mb-8 lg:text-6xl mb-5 md:text-5xl sm:text-3xl text-2xl text-center text-slate-900"> Learn Japanese characters easily with <span>Kanaref</span> </h1> <p class="dark:text-slate-300/80 leading-relaxed lg:max-w-3xl lg:mx-auto mb-8 md:mb-11 md:text-lg text-center text-slate-700 text-sm"> Kanaref is perfect for referring to Hiragana and Katakana at any time - switch between the scripts, search for specific characters, see different variations in one click. Enjoy learning! </p> <div class="flex justify-center sm:space-x-4"> <button id="btn-see-chart" class="bg-slate-900 dark:bg-sky-500 dark:focus:ring-slate-200 dark:hover:bg-sky-400 dark:text-slate-50 focus:outline-none focus:ring-2 focus:ring-sky-500 font-medium hover:bg-slate-900/80 px-5 py-3 rounded-md sm:w-auto text-slate-200 text-sm w-full"> See the chart </button> <form action="#" id="hero-form" class="bg-white border border-slate-300 dark:bg-slate-800 dark:border-transparent hidden px-4 py-3 rounded-md sm:flex space-x-2 w-64"> <svg class="h-5 w-5 text-slate-600 dark:text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/></svg> <input type="text" placeholder="Search kana characters" class="bg-white dark:bg-slate-800 dark:text-slate-200 flex-1 focus:outline-none placeholder:text-slate-400 text-slate-600 text-sm"> </form> </div> </div> </section> <section id="chart-section" class="bg-slate-50 dark:bg-slate-900 pb-20 pt-16"> <div class="container mb-8 mx-auto px-4"> <h2 id="heading-primary" class="dark:text-slate-200 lg:text-3xl md:text-2xl text-center text-slate-700 text-xl"> Hiragana Chart </h2> </div> <div class="max-w-6xl mx-auto px-4"> <div id="chart" class="auto-rows-[minmax(55px,_1fr)] gap-x-1 gap-y-7 grid grid-cols-[repeat(5,_55px)] justify-center lg:auto-rows-[minmax(70px,_1fr)] lg:gap-x-4 lg:grid-cols-[repeat(12,_70px)] md:auto-rows-[minmax(70px,_1fr)] md:gap-x-8 md:gap-y-8 md:grid-cols-[repeat(6,_70px)] sm:gap-x-2 sm:grid-cols-[repeat(6,_55px)]"> <div id="consonants-row" class="contents"> <p class="col-end-2 col-start-1 dark:text-slate-600 hidden justify-self-center lg:col-end-3 lg:col-start-2 lg:justify-self-center lg:row-end-2 lg:row-start-1 lg:self-end md:text-2xl row-end-12 row-start-11 self-center sm:block text-base text-slate-500"> w </p> <p class="col-end-2 col-start-1 dark:text-slate-600 hidden justify-self-center lg:col-end-4 lg:col-start-3 lg:justify-self-center lg:row-end-2 lg:row-start-1 lg:self-end md:text-2xl row-end-11 row-start-10 self-center sm:block text-base text-slate-500"> r </p> <p class="col-end-2 col-start-1 dark:text-slate-600 hidden justify-self-center lg:col-end-5 lg:col-start-4 lg:justify-self-center lg:row-end-2 lg:row-start-1 lg:self-end md:text-2xl row-end-10 row-start-9 self-center sm:block text-base text-slate-500"> y </p> <p class="col-end-2 col-start-1 dark:text-slate-600 hidden justify-self-center lg:col-end-6 lg:col-start-5 lg:justify-self-center lg:row-end-2 lg:row-start-1 lg:self-end md:text-2xl row-end-9 row-start-8 self-center sm:block text-base text-slate-500"> m </p> <p class="col-end-2 col-start-1 dark:text-slate-600 hidden justify-self-center lg:col-end-7 lg:col-start-6 lg:justify-self-center lg:row-end-2 lg:row-start-1 lg:self-end md:text-2xl row-end-8 row-start-7 self-center sm:block text-base text-slate-500"> h </p> <p class="col-end-2 col-start-1 dark:text-slate-600 hidden justify-self-center lg:col-end-8 lg:col-start-7 lg:justify-self-center lg:row-end-2 lg:row-start-1 lg:self-end md:text-2xl row-end-7 row-start-6 self-center sm:block text-base text-slate-500"> n </p> <p class="col-end-2 col-start-1 dark:text-slate-600 hidden justify-self-center lg:col-end-9 lg:col-start-8 lg:justify-self-center lg:row-end-2 lg:row-start-1 lg:self-end md:text-2xl row-end-6 row-start-5 self-center sm:block text-base text-slate-500"> t </p> <p class="col-end-2 col-start-1 dark:text-slate-600 hidden justify-self-center lg:col-end-10 lg:col-start-9 lg:justify-self-center lg:row-end-2 lg:row-start-1 lg:self-end md:text-2xl row-end-5 row-start-4 self-center sm:block text-base text-slate-500"> s </p> <p class="col-end-2 col-start-1 dark:text-slate-600 hidden justify-self-center lg:col-end-11 lg:col-start-10 lg:justify-self-center lg:row-end-2 lg:row-start-1 lg:self-end md:text-2xl row-end-4 row-start-3 self-center sm:block text-base text-slate-500"> k </p> </div> <div class="contents" id="nn-col"> <button data-char="n" class="bg-slate-50 col-end-2 col-start-1 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-2 lg:col-start-1 lg:row-end-3 lg:row-start-2 md:text-4xl relative rounded-lg row-end-12 row-start-11 sm:col-end-3 sm:col-start-2 sm:row-end-13 sm:row-start-12 text-2xl text-slate-700 transition-all"> <span class="kana-char"> ん </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">n</span> </button> </div> <div class="contents" id="w-col"> <button data-char="wa" class="bg-slate-50 col-end-2 col-start-1 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-3 lg:col-start-2 lg:row-end-3 lg:row-start-2 md:text-4xl relative rounded-lg row-end-11 row-start-10 sm:col-end-3 sm:col-start-2 sm:row-end-12 sm:row-start-11 text-2xl text-slate-700 transition-all"> <span class="kana-char"> わ </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">wa</span> </button> <button data-char="wo" class="bg-slate-50 col-end-6 col-start-5 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-3 lg:col-start-2 lg:row-end-7 lg:row-start-6 md:text-4xl relative rounded-lg row-end-11 row-start-10 sm:col-end-7 sm:col-start-6 sm:row-end-12 sm:row-start-11 text-2xl text-slate-700 transition-all"> <span class="kana-char"> を </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">wo</span> </button> </div> <div class="contents" id="r-col"> <button data-char="ra" class="bg-slate-50 col-end-2 col-start-1 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-4 lg:col-start-3 lg:row-end-3 lg:row-start-2 md:text-4xl relative rounded-lg row-end-10 row-start-9 sm:col-end-3 sm:col-start-2 sm:row-end-11 sm:row-start-10 text-2xl text-slate-700 transition-all"> <span class="kana-char"> ら </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">ra</span> </button> <button data-char="ri" class="bg-slate-50 col-end-3 col-start-2 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-4 lg:col-start-3 lg:row-end-4 lg:row-start-3 md:text-4xl relative rounded-lg row-end-10 row-start-9 sm:col-end-4 sm:col-start-3 sm:row-end-11 sm:row-start-10 text-2xl text-slate-700 transition-all"> <span class="kana-char"> り </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">ri</span> </button> <button data-char="ru" class="bg-slate-50 col-end-4 col-start-3 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-4 lg:col-start-3 lg:row-end-5 lg:row-start-4 md:text-4xl relative rounded-lg row-end-10 row-start-9 sm:col-end-5 sm:col-start-4 sm:row-end-11 sm:row-start-10 text-2xl text-slate-700 transition-all"> <span class="kana-char"> る </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">ru</span> </button> <button data-char="re" class="bg-slate-50 col-end-5 col-start-4 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-4 lg:col-start-3 lg:row-end-6 lg:row-start-5 md:text-4xl relative rounded-lg row-end-10 row-start-9 sm:col-end-6 sm:col-start-5 sm:row-end-11 sm:row-start-10 text-2xl text-slate-700 transition-all"> <span class="kana-char"> れ </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">re</span> </button> <button data-char="ro" class="bg-slate-50 col-end-6 col-start-5 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-4 lg:col-start-3 lg:row-end-7 lg:row-start-6 md:text-4xl relative rounded-lg row-end-10 row-start-9 sm:col-end-7 sm:col-start-6 sm:row-end-11 sm:row-start-10 text-2xl text-slate-700 transition-all"> <span class="kana-char"> ろ </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">ro</span> </button> </div> <div class="contents" id="y-col"> <button data-char="ya" class="bg-slate-50 col-end-2 col-start-1 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-5 lg:col-start-4 lg:row-end-3 lg:row-start-2 md:text-4xl relative rounded-lg row-end-9 row-start-8 sm:col-end-3 sm:col-start-2 sm:row-end-10 sm:row-start-9 text-2xl text-slate-700 transition-all"> <span class="kana-char"> や </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">ya</span> </button> <button data-char="yu" class="bg-slate-50 col-end-4 col-start-3 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-5 lg:col-start-4 lg:row-end-5 lg:row-start-4 md:text-4xl relative rounded-lg row-end-9 row-start-8 sm:col-end-5 sm:col-start-4 sm:row-end-10 sm:row-start-9 text-2xl text-slate-700 transition-all"> <span class="kana-char"> ゆ </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">yu</span> </button> <button data-char="yo" class="bg-slate-50 col-end-6 col-start-5 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-5 lg:col-start-4 lg:row-end-7 lg:row-start-6 md:text-4xl relative rounded-lg row-end-9 row-start-8 sm:col-end-7 sm:col-start-6 sm:row-end-10 sm:row-start-9 text-2xl text-slate-700 transition-all"> <span class="kana-char"> よ </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">yo</span> </button> </div> <div class="contents" id="m-col"> <button data-char="ma" class="bg-slate-50 col-end-2 col-start-1 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-6 lg:col-start-5 lg:row-end-3 lg:row-start-2 md:text-4xl relative rounded-lg row-end-8 row-start-7 sm:col-end-3 sm:col-start-2 sm:row-end-9 sm:row-start-8 text-2xl text-slate-700 transition-all"> <span class="kana-char"> ま </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">ma</span> </button> <button data-char="mi" class="bg-slate-50 col-end-3 col-start-2 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-6 lg:col-start-5 lg:row-end-4 lg:row-start-3 md:text-4xl relative rounded-lg row-end-8 row-start-7 sm:col-end-4 sm:col-start-3 sm:row-end-9 sm:row-start-8 text-2xl text-slate-700 transition-all"> <span class="kana-char"> み </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">mi</span> </button> <button data-char="mu" class="bg-slate-50 col-end-4 col-start-3 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-6 lg:col-start-5 lg:row-end-5 lg:row-start-4 md:text-4xl relative rounded-lg row-end-8 row-start-7 sm:col-end-5 sm:col-start-4 sm:row-end-9 sm:row-start-8 text-2xl text-slate-700 transition-all"> <span class="kana-char"> む </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">mu</span> </button> <button data-char="me" class="bg-slate-50 col-end-5 col-start-4 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-6 lg:col-start-5 lg:row-end-6 lg:row-start-5 md:text-4xl relative rounded-lg row-end-8 row-start-7 sm:col-end-6 sm:col-start-5 sm:row-end-9 sm:row-start-8 text-2xl text-slate-700 transition-all"> <span class="kana-char"> め </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">me</span> </button> <button data-char="mo" class="bg-slate-50 col-end-6 col-start-5 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-6 lg:col-start-5 lg:row-end-7 lg:row-start-6 md:text-4xl relative rounded-lg row-end-8 row-start-7 sm:col-end-7 sm:col-start-6 sm:row-end-9 sm:row-start-8 text-2xl text-slate-700 transition-all"> <span class="kana-char"> も </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">mo</span> </button> </div> <div class="contents" id="h-col"> <button data-char="ha" class="bg-slate-50 col-end-2 col-start-1 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-7 lg:col-start-6 lg:row-end-3 lg:row-start-2 md:text-4xl relative rounded-lg row-end-7 row-start-6 sm:col-end-3 sm:col-start-2 sm:row-end-8 sm:row-start-7 text-2xl text-slate-700 transition-all"> <span class="kana-char"> は </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">ha</span> </button> <button data-char="hi" class="bg-slate-50 col-end-3 col-start-2 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-7 lg:col-start-6 lg:row-end-4 lg:row-start-3 md:text-4xl relative rounded-lg row-end-7 row-start-6 sm:col-end-4 sm:col-start-3 sm:row-end-8 sm:row-start-7 text-2xl text-slate-700 transition-all"> <span class="kana-char"> ひ </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">hi</span> </button> <button data-char="fu" class="bg-slate-50 col-end-4 col-start-3 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-7 lg:col-start-6 lg:row-end-5 lg:row-start-4 md:text-4xl relative rounded-lg row-end-7 row-start-6 sm:col-end-5 sm:col-start-4 sm:row-end-8 sm:row-start-7 text-2xl text-slate-700 transition-all"> <span class="kana-char"> ふ </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">fu</span> </button> <button data-char="he" class="bg-slate-50 col-end-5 col-start-4 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-7 lg:col-start-6 lg:row-end-6 lg:row-start-5 md:text-4xl relative rounded-lg row-end-7 row-start-6 sm:col-end-6 sm:col-start-5 sm:row-end-8 sm:row-start-7 text-2xl text-slate-700 transition-all"> <span class="kana-char"> へ </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">he</span> </button> <button data-char="ho" class="bg-slate-50 col-end-6 col-start-5 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-7 lg:col-start-6 lg:row-end-7 lg:row-start-6 md:text-4xl relative rounded-lg row-end-7 row-start-6 sm:col-end-7 sm:col-start-6 sm:row-end-8 sm:row-start-7 text-2xl text-slate-700 transition-all"> <span class="kana-char"> ほ </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">ho</span> </button> </div> <div class="contents" id="n-col"> <button data-char="na" class="bg-slate-50 col-end-2 col-start-1 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-8 lg:col-start-7 lg:row-end-3 lg:row-start-2 md:text-4xl relative rounded-lg row-end-6 row-start-5 sm:col-end-3 sm:col-start-2 sm:row-end-7 sm:row-start-6 text-2xl text-slate-700 transition-all"> <span class="kana-char"> な </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">na</span> </button> <button data-char="ni" class="bg-slate-50 col-end-3 col-start-2 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-8 lg:col-start-7 lg:row-end-4 lg:row-start-3 md:text-4xl relative rounded-lg row-end-6 row-start-5 sm:col-end-4 sm:col-start-3 sm:row-end-7 sm:row-start-6 text-2xl text-slate-700 transition-all"> <span class="kana-char"> に </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">ni</span> </button> <button data-char="nu" class="bg-slate-50 col-end-4 col-start-3 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-8 lg:col-start-7 lg:row-end-5 lg:row-start-4 md:text-4xl relative rounded-lg row-end-6 row-start-5 sm:col-end-5 sm:col-start-4 sm:row-end-7 sm:row-start-6 text-2xl text-slate-700 transition-all"> <span class="kana-char"> ぬ </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">nu</span> </button> <button data-char="ne" class="bg-slate-50 col-end-5 col-start-4 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-8 lg:col-start-7 lg:row-end-6 lg:row-start-5 md:text-4xl relative rounded-lg row-end-6 row-start-5 sm:col-end-6 sm:col-start-5 sm:row-end-7 sm:row-start-6 text-2xl text-slate-700 transition-all"> <span class="kana-char"> ね </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">ne</span> </button> <button data-char="no" class="bg-slate-50 col-end-6 col-start-5 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-8 lg:col-start-7 lg:row-end-7 lg:row-start-6 md:text-4xl relative rounded-lg row-end-6 row-start-5 sm:col-end-7 sm:col-start-6 sm:row-end-7 sm:row-start-6 text-2xl text-slate-700 transition-all"> <span class="kana-char"> の </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">no</span> </button> </div> <div class="contents" id="t-col"> <button data-char="ta" class="bg-slate-50 col-end-2 col-start-1 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-9 lg:col-start-8 lg:row-end-3 lg:row-start-2 md:text-4xl relative rounded-lg row-end-5 row-start-4 sm:col-end-3 sm:col-start-2 sm:row-end-6 sm:row-start-5 text-2xl text-slate-700 transition-all"> <span class="kana-char"> た </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">ta</span> </button> <button data-char="chi" class="bg-slate-50 col-end-3 col-start-2 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-9 lg:col-start-8 lg:row-end-4 lg:row-start-3 md:text-4xl relative rounded-lg row-end-5 row-start-4 sm:col-end-4 sm:col-start-3 sm:row-end-6 sm:row-start-5 text-2xl text-slate-700 transition-all"> <span class="kana-char"> ち </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">chi</span> </button> <button data-char="tsu" class="bg-slate-50 col-end-4 col-start-3 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-9 lg:col-start-8 lg:row-end-5 lg:row-start-4 md:text-4xl relative rounded-lg row-end-5 row-start-4 sm:col-end-5 sm:col-start-4 sm:row-end-6 sm:row-start-5 text-2xl text-slate-700 transition-all"> <span class="kana-char"> つ </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">tsu</span> </button> <button data-char="te" class="bg-slate-50 col-end-5 col-start-4 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-9 lg:col-start-8 lg:row-end-6 lg:row-start-5 md:text-4xl relative rounded-lg row-end-5 row-start-4 sm:col-end-6 sm:col-start-5 sm:row-end-6 sm:row-start-5 text-2xl text-slate-700 transition-all"> <span class="kana-char"> て </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">te</span> </button> <button data-char="to" class="bg-slate-50 col-end-6 col-start-5 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-9 lg:col-start-8 lg:row-end-7 lg:row-start-6 md:text-4xl relative rounded-lg row-end-5 row-start-4 sm:col-end-7 sm:col-start-6 sm:row-end-6 sm:row-start-5 text-2xl text-slate-700 transition-all"> <span class="kana-char"> と </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">to</span> </button> </div> <div class="contents" id="s-col"> <button data-char="sa" class="bg-slate-50 col-end-2 col-start-1 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-10 lg:col-start-9 lg:row-end-3 lg:row-start-2 md:text-4xl relative rounded-lg row-end-4 row-start-3 sm:col-end-3 sm:col-start-2 sm:row-end-5 sm:row-start-4 text-2xl text-slate-700 transition-all"> <span class="kana-char"> さ </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">sa</span> </button> <button data-char="shi" class="bg-slate-50 col-end-3 col-start-2 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-10 lg:col-start-9 lg:row-end-4 lg:row-start-3 md:text-4xl relative rounded-lg row-end-4 row-start-3 sm:col-end-4 sm:col-start-3 sm:row-end-5 sm:row-start-4 text-2xl text-slate-700 transition-all"> <span class="kana-char"> し </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">shi</span> </button> <button data-char="su" class="bg-slate-50 col-end-4 col-start-3 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-10 lg:col-start-9 lg:row-end-5 lg:row-start-4 md:text-4xl relative rounded-lg row-end-4 row-start-3 sm:col-end-5 sm:col-start-4 sm:row-end-5 sm:row-start-4 text-2xl text-slate-700 transition-all"> <span class="kana-char"> す </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">su</span> </button> <button data-char="se" class="bg-slate-50 col-end-5 col-start-4 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-10 lg:col-start-9 lg:row-end-6 lg:row-start-5 md:text-4xl relative rounded-lg row-end-4 row-start-3 sm:col-end-6 sm:col-start-5 sm:row-end-5 sm:row-start-4 text-2xl text-slate-700 transition-all"> <span class="kana-char"> せ </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">se</span> </button> <button data-char="so" class="bg-slate-50 col-end-6 col-start-5 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-10 lg:col-start-9 lg:row-end-7 lg:row-start-6 md:text-4xl relative rounded-lg row-end-4 row-start-3 sm:col-end-7 sm:col-start-6 sm:row-end-5 sm:row-start-4 text-2xl text-slate-700 transition-all"> <span class="kana-char"> そ </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">so</span> </button> </div> <div class="contents" id="k-col"> <button data-char="ka" class="bg-slate-50 col-end-2 col-start-1 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-11 lg:col-start-10 lg:row-end-3 lg:row-start-2 md:text-4xl relative rounded-lg row-end-3 row-start-2 sm:col-end-3 sm:col-start-2 sm:row-end-4 sm:row-start-3 text-2xl text-slate-700 transition-all"> <span class="kana-char"> か </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">ka</span> </button> <button data-char="ki" class="bg-slate-50 col-end-3 col-start-2 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-11 lg:col-start-10 lg:row-end-4 lg:row-start-3 md:text-4xl relative rounded-lg row-end-3 row-start-2 sm:col-end-4 sm:col-start-3 sm:row-end-4 sm:row-start-3 text-2xl text-slate-700 transition-all"> <span class="kana-char"> き </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">ki</span> </button> <button data-char="ku" class="bg-slate-50 col-end-4 col-start-3 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-11 lg:col-start-10 lg:row-end-5 lg:row-start-4 md:text-4xl relative rounded-lg row-end-3 row-start-2 sm:col-end-5 sm:col-start-4 sm:row-end-4 sm:row-start-3 text-2xl text-slate-700 transition-all"> <span class="kana-char"> く </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">ku</span> </button> <button data-char="ke" class="bg-slate-50 col-end-5 col-start-4 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-11 lg:col-start-10 lg:row-end-6 lg:row-start-5 md:text-4xl relative rounded-lg row-end-3 row-start-2 sm:col-end-6 sm:col-start-5 sm:row-end-4 sm:row-start-3 text-2xl text-slate-700 transition-all"> <span class="kana-char"> け </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">ke</span> </button> <button data-char="ko" class="bg-slate-50 col-end-6 col-start-5 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-11 lg:col-start-10 lg:row-end-7 lg:row-start-6 md:text-4xl relative rounded-lg row-end-3 row-start-2 sm:col-end-7 sm:col-start-6 sm:row-end-4 sm:row-start-3 text-2xl text-slate-700 transition-all"> <span class="kana-char"> こ </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">ko</span> </button> </div> <div class="contents" id="a-col"> <button data-char="a" class="bg-slate-50 col-end-2 col-start-1 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-12 lg:col-start-11 lg:row-end-3 lg:row-start-2 md:text-4xl relative rounded-lg row-end-2 row-start-1 sm:col-end-3 sm:col-start-2 sm:row-end-3 sm:row-start-2 text-2xl text-slate-700 transition-all"> <span class="kana-char"> あ </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">a</span> </button> <button data-char="i" class="bg-slate-50 col-end-3 col-start-2 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-12 lg:col-start-11 lg:row-end-4 lg:row-start-3 md:text-4xl relative rounded-lg row-end-2 row-start-1 sm:col-end-4 sm:col-start-3 sm:row-end-3 sm:row-start-2 text-2xl text-slate-700 transition-all"> <span class="kana-char"> い </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">i</span> </button> <button data-char="u" class="bg-slate-50 col-end-4 col-start-3 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-12 lg:col-start-11 lg:row-end-5 lg:row-start-4 md:text-4xl relative rounded-lg row-end-2 row-start-1 sm:col-end-5 sm:col-start-4 sm:row-end-3 sm:row-start-2 text-2xl text-slate-700 transition-all"> <span class="kana-char"> う </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">u</span> </button> <button data-char="e" class="bg-slate-50 col-end-5 col-start-4 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-12 lg:col-start-11 lg:row-end-6 lg:row-start-5 md:text-4xl relative rounded-lg row-end-2 row-start-1 sm:col-end-6 sm:col-start-5 sm:row-end-3 sm:row-start-2 text-2xl text-slate-700 transition-all"> <span class="kana-char"> え </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">e</span> </button> <button data-char="o" class="bg-slate-50 col-end-6 col-start-5 cursor-pointer dark:bg-slate-900 dark:hover:bg-slate-800/20 dark:text-slate-100 flex focus:outline-none focus:ring-2 focus:ring-sky-500 hover:bg-slate-50 hover:shadow-md items-center justify-center lg:col-end-12 lg:col-start-11 lg:row-end-7 lg:row-start-6 md:text-4xl relative rounded-lg row-end-2 row-start-1 sm:col-end-7 sm:col-start-6 sm:row-end-3 sm:row-start-2 text-2xl text-slate-700 transition-all"> <span class="kana-char"> お </span> <span class="-translate-x-1/2 absolute left-1/2 text-slate-500 text-sm top-full">o</span> </button> </div> <div class="contents" id="vowels-col"> <div class="col-end-3 col-start-2 dark:text-slate-600 hidden justify-self-center lg:col-end-13 lg:col-start-12 lg:row-end-3 lg:row-start-2 lg:self-center md:text-2xl row-end-2 row-start-1 self-end sm:block text-base text-slate-500"> a </div> <div class="col-end-4 col-start-3 dark:text-slate-600 hidden justify-self-center lg:col-end-13 lg:col-start-12 lg:row-end-4 lg:row-start-3 lg:self-center md:text-2xl row-end-2 row-start-1 self-end sm:block text-base text-slate-500"> i </div> <div class="col-end-5 col-start-4 dark:text-slate-600 hidden justify-self-center lg:col-end-13 lg:col-start-12 lg:row-end-5 lg:row-start-4 lg:self-center md:text-2xl row-end-2 row-start-1 self-end sm:block text-base text-slate-500"> u </div> <div class="col-end-6 col-start-5 dark:text-slate-600 hidden justify-self-center lg:col-end-13 lg:col-start-12 lg:row-end-6 lg:row-start-5 lg:self-center md:text-2xl row-end-2 row-start-1 self-end sm:block text-base text-slate-500"> e </div> <div class="col-end-7 col-start-6 dark:text-slate-600 hidden justify-self-center lg:col-end-13 lg:col-start-12 lg:row-end-7 lg:row-start-6 lg:self-center md:text-2xl row-end-2 row-start-1 self-end sm:block text-base text-slate-500"> o </div> </div> </div> </div> </section> <footer class="bg-slate-50 dark:bg-slate-900 pb-4 pt-8"> <p class="dark:text-slate-700 text-center text-slate-400 text-xs"> Copyright &copy; <span id="year"></span> by CuryPD. All rights reserved. </p> </footer> <div id="overlay" class="backdrop-blur-sm bg-gray-400/30 dark:bg-slate-900/60 fixed h-full hidden left-0 top-0 w-full z-40"></div> <div id="modal" class="-translate-x-1/2 -translate-y-1/2 bg-white dark:bg-slate-800 fixed hidden left-1/2 max-w-xl p-6 rounded-xl shadow-lg top-1/2 w-11/12 z-50">  </div> </body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A perfect tool for referring to Hiragana and Katakana at any time - switch between the scripts, search for specific characters, see different variations in one click. Enjoy learning!">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image" href="/favicon.8b2f57bf.png">
+
+    <link rel="stylesheet" href="/index.61d3354a.css">
+
+    <script defer="" src="/index.e37f48ea.js"></script>
+
+    <title>Kanaref - Learn Japanese Characters With Ease</title>
+  </head>
+  <body>
+    <nav id="nav" class="flex items-center border-b border-slate-300 bg-slate-50 py-3 px-4 dark:border-slate-800 dark:bg-slate-900 md:px-14">
+      <div id="logo" class="mr-6 flex items-center space-x-3 md:mr-8">
+        <img src="/logo.8bb9af93.svg" alt="Japanese Hiragana A" class="h-7">
+        <span class="hidden text-2xl font-medium text-slate-800 dark:text-slate-100 sm:block">kanaref</span>
+      </div>
+      <div class="relative">
+        <button id="btn-open-scripts" class="relative flex items-center space-x-1 rounded-full border-t border-transparent bg-slate-200/70 py-2 px-4 hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 dark:border-slate-700 dark:bg-slate-300/10 dark:hover:bg-slate-400/20">
+          <span class="text-xs font-medium text-slate-700 dark:text-slate-400">Hiragana</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-slate-700 dark:text-slate-300" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div id="scripts-box" class="absolute top-full left-0 hidden w-36 translate-y-6 rounded-lg border border-slate-300 bg-slate-50 py-1 shadow-md dark:border-slate-700 dark:bg-slate-800">
+          <ul>
+            <li data-script="hiragana" class="script-active flex cursor-pointer items-center justify-between bg-slate-50 py-2 px-3 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700/20">
+              <span class="text-sm font-medium text-slate-800 dark:font-medium dark:text-slate-300">Hiragana</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 opacity-0" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+            <li data-script="katakana" class="flex cursor-pointer items-center justify-between bg-slate-50 py-2 px-3 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700/20">
+              <span class="text-sm font-medium text-slate-800 dark:font-medium dark:text-slate-300">Katakana</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 opacity-0" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="relative ml-auto">
+        <button id="btn-open-modes" class="flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-sky-500">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-500" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+        </button>
+        <div id="modes-box" class="absolute top-full left-0 hidden w-36 -translate-x-32 translate-y-6 rounded-lg border border-slate-300 bg-slate-50 py-1 shadow-md dark:border-slate-700 dark:bg-slate-800 md:-translate-x-2/3">
+          <ul>
+            <li data-theme="light" class="flex cursor-pointer space-x-3 bg-slate-50 py-2 px-3 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700/20">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-500" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+              </svg>
+              <span class="text-sm font-medium text-slate-800 dark:text-slate-300">Light</span>
+            </li>
+            <li data-theme="dark" class="flex cursor-pointer space-x-3 bg-slate-50 py-2 px-3 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700/20">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-500" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+              </svg>
+              <span class="text-sm font-medium text-slate-800 dark:text-slate-300">Dark</span>
+            </li>
+            <li data-theme="system" class="mode-active flex cursor-pointer space-x-3 bg-slate-50 py-2 px-3 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700/20">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-500" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+              <span class="text-sm font-medium text-slate-800 dark:text-slate-300">System</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section id="hero" class="bg-slate-50 pt-16 pb-12 dark:bg-slate-900 lg:pt-24">
+      <div class="mx-auto max-w-5xl px-8">
+        <h1 class="mb-5 text-center text-2xl font-bold text-slate-900 dark:text-slate-200 sm:text-3xl md:text-5xl lg:mb-8 lg:text-6xl lg:leading-close">
+          Learn Japanese characters easily with
+          <span>Kanaref</span>
+        </h1>
+        <p class="mb-8 text-center text-sm leading-relaxed text-slate-700 dark:text-slate-300/80 md:mb-11 md:text-lg lg:mx-auto lg:max-w-3xl">
+          Kanaref is perfect for referring to Hiragana and Katakana at any time
+          - switch between the scripts, search for specific characters, see
+          different variations in one click. Enjoy learning!
+        </p>
+        <div class="flex justify-center sm:space-x-4">
+          <button id="btn-see-chart" class="w-full rounded-md bg-slate-900 py-3 px-5 text-sm font-medium text-slate-200 hover:bg-slate-900/80 focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-sky-500 dark:text-slate-50 dark:hover:bg-sky-400 dark:focus:ring-slate-200 sm:w-auto">
+            See the chart
+          </button>
+          <form action="#" id="hero-form" class="hidden w-64 space-x-2 rounded-md border border-slate-300 bg-white py-3 px-4 dark:border-transparent dark:bg-slate-800 sm:flex">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-600 dark:text-slate-400" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+            <input type="text" placeholder="Search kana characters" class="flex-1 bg-white text-sm text-slate-600 placeholder:text-slate-400 focus:outline-none dark:bg-slate-800 dark:text-slate-200">
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="chart-section" class="bg-slate-50 pt-16 pb-20 dark:bg-slate-900">
+      <div class="container mx-auto mb-8 px-4">
+        <h2 id="heading-primary" class="text-center text-xl text-slate-700 dark:text-slate-200 md:text-2xl lg:text-3xl">
+          Hiragana Chart
+        </h2>
+      </div>
+      <div class="mx-auto max-w-6xl px-4">
+        <div id="chart" class="grid auto-rows-[minmax(55px,_1fr)] grid-cols-[repeat(5,_55px)] justify-center gap-x-1 gap-y-7 sm:grid-cols-[repeat(6,_55px)] sm:gap-x-2 md:auto-rows-[minmax(70px,_1fr)] md:grid-cols-[repeat(6,_70px)] md:gap-x-8 md:gap-y-8 lg:auto-rows-[minmax(70px,_1fr)] lg:grid-cols-[repeat(12,_70px)] lg:gap-x-4">
+          <div id="consonants-row" class="contents">
+            <p class="col-start-1 col-end-2 row-start-11 row-end-12 hidden self-center justify-self-center text-base text-slate-500 dark:text-slate-600 sm:block md:text-2xl lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-2 lg:self-end lg:justify-self-center">
+              w
+            </p>
+            <p class="col-start-1 col-end-2 row-start-10 row-end-11 hidden self-center justify-self-center text-base text-slate-500 dark:text-slate-600 sm:block md:text-2xl lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2 lg:self-end lg:justify-self-center">
+              r
+            </p>
+            <p class="col-start-1 col-end-2 row-start-9 row-end-10 hidden self-center justify-self-center text-base text-slate-500 dark:text-slate-600 sm:block md:text-2xl lg:col-start-4 lg:col-end-5 lg:row-start-1 lg:row-end-2 lg:self-end lg:justify-self-center">
+              y
+            </p>
+            <p class="col-start-1 col-end-2 row-start-8 row-end-9 hidden self-center justify-self-center text-base text-slate-500 dark:text-slate-600 sm:block md:text-2xl lg:col-start-5 lg:col-end-6 lg:row-start-1 lg:row-end-2 lg:self-end lg:justify-self-center">
+              m
+            </p>
+            <p class="col-start-1 col-end-2 row-start-7 row-end-8 hidden self-center justify-self-center text-base text-slate-500 dark:text-slate-600 sm:block md:text-2xl lg:col-start-6 lg:col-end-7 lg:row-start-1 lg:row-end-2 lg:self-end lg:justify-self-center">
+              h
+            </p>
+            <p class="col-start-1 col-end-2 row-start-6 row-end-7 hidden self-center justify-self-center text-base text-slate-500 dark:text-slate-600 sm:block md:text-2xl lg:col-start-7 lg:col-end-8 lg:row-start-1 lg:row-end-2 lg:self-end lg:justify-self-center">
+              n
+            </p>
+            <p class="col-start-1 col-end-2 row-start-5 row-end-6 hidden self-center justify-self-center text-base text-slate-500 dark:text-slate-600 sm:block md:text-2xl lg:col-start-8 lg:col-end-9 lg:row-start-1 lg:row-end-2 lg:self-end lg:justify-self-center">
+              t
+            </p>
+            <p class="col-start-1 col-end-2 row-start-4 row-end-5 hidden self-center justify-self-center text-base text-slate-500 dark:text-slate-600 sm:block md:text-2xl lg:col-start-9 lg:col-end-10 lg:row-start-1 lg:row-end-2 lg:self-end lg:justify-self-center">
+              s
+            </p>
+            <p class="col-start-1 col-end-2 row-start-3 row-end-4 hidden self-center justify-self-center text-base text-slate-500 dark:text-slate-600 sm:block md:text-2xl lg:col-start-10 lg:col-end-11 lg:row-start-1 lg:row-end-2 lg:self-end lg:justify-self-center">
+              k
+            </p>
+          </div>
+          <div class="contents" id="nn-col">
+            <button data-char="n" class="relative col-start-1 col-end-2 row-start-11 row-end-12 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-12 sm:row-end-13 md:text-4xl lg:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-3">
+              <span class="kana-char"> ん </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">n</span>
+            </button>
+          </div>
+          <div class="contents" id="w-col">
+            <button data-char="wa" class="relative col-start-1 col-end-2 row-start-10 row-end-11 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-11 sm:row-end-12 md:text-4xl lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3">
+              <span class="kana-char"> わ </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">wa</span>
+            </button>
+            <button data-char="wo" class="relative col-start-5 col-end-6 row-start-10 row-end-11 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-6 sm:col-end-7 sm:row-start-11 sm:row-end-12 md:text-4xl lg:col-start-2 lg:col-end-3 lg:row-start-6 lg:row-end-7">
+              <span class="kana-char"> を </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">wo</span>
+            </button>
+          </div>
+          <div class="contents" id="r-col">
+            <button data-char="ra" class="relative col-start-1 col-end-2 row-start-9 row-end-10 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-10 sm:row-end-11 md:text-4xl lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-3">
+              <span class="kana-char"> ら </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">ra</span>
+            </button>
+            <button data-char="ri" class="relative col-start-2 col-end-3 row-start-9 row-end-10 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-3 sm:col-end-4 sm:row-start-10 sm:row-end-11 md:text-4xl lg:col-start-3 lg:col-end-4 lg:row-start-3 lg:row-end-4">
+              <span class="kana-char"> り </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">ri</span>
+            </button>
+            <button data-char="ru" class="relative col-start-3 col-end-4 row-start-9 row-end-10 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-4 sm:col-end-5 sm:row-start-10 sm:row-end-11 md:text-4xl lg:col-start-3 lg:col-end-4 lg:row-start-4 lg:row-end-5">
+              <span class="kana-char"> る </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">ru</span>
+            </button>
+            <button data-char="re" class="relative col-start-4 col-end-5 row-start-9 row-end-10 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-5 sm:col-end-6 sm:row-start-10 sm:row-end-11 md:text-4xl lg:col-start-3 lg:col-end-4 lg:row-start-5 lg:row-end-6">
+              <span class="kana-char"> れ </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">re</span>
+            </button>
+            <button data-char="ro" class="relative col-start-5 col-end-6 row-start-9 row-end-10 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-6 sm:col-end-7 sm:row-start-10 sm:row-end-11 md:text-4xl lg:col-start-3 lg:col-end-4 lg:row-start-6 lg:row-end-7">
+              <span class="kana-char"> ろ </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">ro</span>
+            </button>
+          </div>
+          <div class="contents" id="y-col">
+            <button data-char="ya" class="relative col-start-1 col-end-2 row-start-8 row-end-9 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-9 sm:row-end-10 md:text-4xl lg:col-start-4 lg:col-end-5 lg:row-start-2 lg:row-end-3">
+              <span class="kana-char"> や </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">ya</span>
+            </button>
+            <button data-char="yu" class="relative col-start-3 col-end-4 row-start-8 row-end-9 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-4 sm:col-end-5 sm:row-start-9 sm:row-end-10 md:text-4xl lg:col-start-4 lg:col-end-5 lg:row-start-4 lg:row-end-5">
+              <span class="kana-char"> ゆ </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">yu</span>
+            </button>
+            <button data-char="yo" class="relative col-start-5 col-end-6 row-start-8 row-end-9 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-6 sm:col-end-7 sm:row-start-9 sm:row-end-10 md:text-4xl lg:col-start-4 lg:col-end-5 lg:row-start-6 lg:row-end-7">
+              <span class="kana-char"> よ </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">yo</span>
+            </button>
+          </div>
+          <div class="contents" id="m-col">
+            <button data-char="ma" class="relative col-start-1 col-end-2 row-start-7 row-end-8 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-8 sm:row-end-9 md:text-4xl lg:col-start-5 lg:col-end-6 lg:row-start-2 lg:row-end-3">
+              <span class="kana-char"> ま </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">ma</span>
+            </button>
+            <button data-char="mi" class="relative col-start-2 col-end-3 row-start-7 row-end-8 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-3 sm:col-end-4 sm:row-start-8 sm:row-end-9 md:text-4xl lg:col-start-5 lg:col-end-6 lg:row-start-3 lg:row-end-4">
+              <span class="kana-char"> み </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">mi</span>
+            </button>
+            <button data-char="mu" class="relative col-start-3 col-end-4 row-start-7 row-end-8 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-4 sm:col-end-5 sm:row-start-8 sm:row-end-9 md:text-4xl lg:col-start-5 lg:col-end-6 lg:row-start-4 lg:row-end-5">
+              <span class="kana-char"> む </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">mu</span>
+            </button>
+            <button data-char="me" class="relative col-start-4 col-end-5 row-start-7 row-end-8 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-5 sm:col-end-6 sm:row-start-8 sm:row-end-9 md:text-4xl lg:col-start-5 lg:col-end-6 lg:row-start-5 lg:row-end-6">
+              <span class="kana-char"> め </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">me</span>
+            </button>
+            <button data-char="mo" class="relative col-start-5 col-end-6 row-start-7 row-end-8 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-6 sm:col-end-7 sm:row-start-8 sm:row-end-9 md:text-4xl lg:col-start-5 lg:col-end-6 lg:row-start-6 lg:row-end-7">
+              <span class="kana-char"> も </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">mo</span>
+            </button>
+          </div>
+          <div class="contents" id="h-col">
+            <button data-char="ha" class="relative col-start-1 col-end-2 row-start-6 row-end-7 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-7 sm:row-end-8 md:text-4xl lg:col-start-6 lg:col-end-7 lg:row-start-2 lg:row-end-3">
+              <span class="kana-char"> は </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">ha</span>
+            </button>
+            <button data-char="hi" class="relative col-start-2 col-end-3 row-start-6 row-end-7 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-3 sm:col-end-4 sm:row-start-7 sm:row-end-8 md:text-4xl lg:col-start-6 lg:col-end-7 lg:row-start-3 lg:row-end-4">
+              <span class="kana-char"> ひ </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">hi</span>
+            </button>
+            <button data-char="fu" class="relative col-start-3 col-end-4 row-start-6 row-end-7 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-4 sm:col-end-5 sm:row-start-7 sm:row-end-8 md:text-4xl lg:col-start-6 lg:col-end-7 lg:row-start-4 lg:row-end-5">
+              <span class="kana-char"> ふ </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">fu</span>
+            </button>
+            <button data-char="he" class="relative col-start-4 col-end-5 row-start-6 row-end-7 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-5 sm:col-end-6 sm:row-start-7 sm:row-end-8 md:text-4xl lg:col-start-6 lg:col-end-7 lg:row-start-5 lg:row-end-6">
+              <span class="kana-char"> へ </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">he</span>
+            </button>
+            <button data-char="ho" class="relative col-start-5 col-end-6 row-start-6 row-end-7 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-6 sm:col-end-7 sm:row-start-7 sm:row-end-8 md:text-4xl lg:col-start-6 lg:col-end-7 lg:row-start-6 lg:row-end-7">
+              <span class="kana-char"> ほ </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">ho</span>
+            </button>
+          </div>
+          <div class="contents" id="n-col">
+            <button data-char="na" class="relative col-start-1 col-end-2 row-start-5 row-end-6 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-6 sm:row-end-7 md:text-4xl lg:col-start-7 lg:col-end-8 lg:row-start-2 lg:row-end-3">
+              <span class="kana-char"> な </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">na</span>
+            </button>
+            <button data-char="ni" class="relative col-start-2 col-end-3 row-start-5 row-end-6 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-3 sm:col-end-4 sm:row-start-6 sm:row-end-7 md:text-4xl lg:col-start-7 lg:col-end-8 lg:row-start-3 lg:row-end-4">
+              <span class="kana-char"> に </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">ni</span>
+            </button>
+            <button data-char="nu" class="relative col-start-3 col-end-4 row-start-5 row-end-6 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-4 sm:col-end-5 sm:row-start-6 sm:row-end-7 md:text-4xl lg:col-start-7 lg:col-end-8 lg:row-start-4 lg:row-end-5">
+              <span class="kana-char"> ぬ </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">nu</span>
+            </button>
+            <button data-char="ne" class="relative col-start-4 col-end-5 row-start-5 row-end-6 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-5 sm:col-end-6 sm:row-start-6 sm:row-end-7 md:text-4xl lg:col-start-7 lg:col-end-8 lg:row-start-5 lg:row-end-6">
+              <span class="kana-char"> ね </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">ne</span>
+            </button>
+            <button data-char="no" class="relative col-start-5 col-end-6 row-start-5 row-end-6 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-6 sm:col-end-7 sm:row-start-6 sm:row-end-7 md:text-4xl lg:col-start-7 lg:col-end-8 lg:row-start-6 lg:row-end-7">
+              <span class="kana-char"> の </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">no</span>
+            </button>
+          </div>
+          <div class="contents" id="t-col">
+            <button data-char="ta" class="relative col-start-1 col-end-2 row-start-4 row-end-5 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-5 sm:row-end-6 md:text-4xl lg:col-start-8 lg:col-end-9 lg:row-start-2 lg:row-end-3">
+              <span class="kana-char"> た </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">ta</span>
+            </button>
+            <button data-char="chi" class="relative col-start-2 col-end-3 row-start-4 row-end-5 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-3 sm:col-end-4 sm:row-start-5 sm:row-end-6 md:text-4xl lg:col-start-8 lg:col-end-9 lg:row-start-3 lg:row-end-4">
+              <span class="kana-char"> ち </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">chi</span>
+            </button>
+            <button data-char="tsu" class="relative col-start-3 col-end-4 row-start-4 row-end-5 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-4 sm:col-end-5 sm:row-start-5 sm:row-end-6 md:text-4xl lg:col-start-8 lg:col-end-9 lg:row-start-4 lg:row-end-5">
+              <span class="kana-char"> つ </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">tsu</span>
+            </button>
+            <button data-char="te" class="relative col-start-4 col-end-5 row-start-4 row-end-5 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-5 sm:col-end-6 sm:row-start-5 sm:row-end-6 md:text-4xl lg:col-start-8 lg:col-end-9 lg:row-start-5 lg:row-end-6">
+              <span class="kana-char"> て </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">te</span>
+            </button>
+            <button data-char="to" class="relative col-start-5 col-end-6 row-start-4 row-end-5 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-6 sm:col-end-7 sm:row-start-5 sm:row-end-6 md:text-4xl lg:col-start-8 lg:col-end-9 lg:row-start-6 lg:row-end-7">
+              <span class="kana-char"> と </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">to</span>
+            </button>
+          </div>
+          <div class="contents" id="s-col">
+            <button data-char="sa" class="relative col-start-1 col-end-2 row-start-3 row-end-4 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-4 sm:row-end-5 md:text-4xl lg:col-start-9 lg:col-end-10 lg:row-start-2 lg:row-end-3">
+              <span class="kana-char"> さ </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">sa</span>
+            </button>
+            <button data-char="shi" class="relative col-start-2 col-end-3 row-start-3 row-end-4 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-3 sm:col-end-4 sm:row-start-4 sm:row-end-5 md:text-4xl lg:col-start-9 lg:col-end-10 lg:row-start-3 lg:row-end-4">
+              <span class="kana-char"> し </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">shi</span>
+            </button>
+            <button data-char="su" class="relative col-start-3 col-end-4 row-start-3 row-end-4 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-4 sm:col-end-5 sm:row-start-4 sm:row-end-5 md:text-4xl lg:col-start-9 lg:col-end-10 lg:row-start-4 lg:row-end-5">
+              <span class="kana-char"> す </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">su</span>
+            </button>
+
+            <button data-char="se" class="relative col-start-4 col-end-5 row-start-3 row-end-4 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-5 sm:col-end-6 sm:row-start-4 sm:row-end-5 md:text-4xl lg:col-start-9 lg:col-end-10 lg:row-start-5 lg:row-end-6">
+              <span class="kana-char"> せ </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">se</span>
+            </button>
+            <button data-char="so" class="relative col-start-5 col-end-6 row-start-3 row-end-4 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-6 sm:col-end-7 sm:row-start-4 sm:row-end-5 md:text-4xl lg:col-start-9 lg:col-end-10 lg:row-start-6 lg:row-end-7">
+              <span class="kana-char"> そ </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">so</span>
+            </button>
+          </div>
+          <div class="contents" id="k-col">
+            <button data-char="ka" class="relative col-start-1 col-end-2 row-start-2 row-end-3 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-3 sm:row-end-4 md:text-4xl lg:col-start-10 lg:col-end-11 lg:row-start-2 lg:row-end-3">
+              <span class="kana-char"> か </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">ka</span>
+            </button>
+            <button data-char="ki" class="relative col-start-2 col-end-3 row-start-2 row-end-3 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-3 sm:col-end-4 sm:row-start-3 sm:row-end-4 md:text-4xl lg:col-start-10 lg:col-end-11 lg:row-start-3 lg:row-end-4">
+              <span class="kana-char"> き </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">ki</span>
+            </button>
+            <button data-char="ku" class="relative col-start-3 col-end-4 row-start-2 row-end-3 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-4 sm:col-end-5 sm:row-start-3 sm:row-end-4 md:text-4xl lg:col-start-10 lg:col-end-11 lg:row-start-4 lg:row-end-5">
+              <span class="kana-char"> く </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">ku</span>
+            </button>
+            <button data-char="ke" class="relative col-start-4 col-end-5 row-start-2 row-end-3 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-5 sm:col-end-6 sm:row-start-3 sm:row-end-4 md:text-4xl lg:col-start-10 lg:col-end-11 lg:row-start-5 lg:row-end-6">
+              <span class="kana-char"> け </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">ke</span>
+            </button>
+            <button data-char="ko" class="relative col-start-5 col-end-6 row-start-2 row-end-3 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-6 sm:col-end-7 sm:row-start-3 sm:row-end-4 md:text-4xl lg:col-start-10 lg:col-end-11 lg:row-start-6 lg:row-end-7">
+              <span class="kana-char"> こ </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">ko</span>
+            </button>
+          </div>
+          <div class="contents" id="a-col">
+            <button data-char="a" class="relative col-start-1 col-end-2 row-start-1 row-end-2 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-2 sm:col-end-3 sm:row-start-2 sm:row-end-3 md:text-4xl lg:col-start-11 lg:col-end-12 lg:row-start-2 lg:row-end-3">
+              <span class="kana-char"> あ </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">a</span>
+            </button>
+            <button data-char="i" class="relative col-start-2 col-end-3 row-start-1 row-end-2 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-3 sm:col-end-4 sm:row-start-2 sm:row-end-3 md:text-4xl lg:col-start-11 lg:col-end-12 lg:row-start-3 lg:row-end-4">
+              <span class="kana-char"> い </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">i</span>
+            </button>
+            <button data-char="u" class="relative col-start-3 col-end-4 row-start-1 row-end-2 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-4 sm:col-end-5 sm:row-start-2 sm:row-end-3 md:text-4xl lg:col-start-11 lg:col-end-12 lg:row-start-4 lg:row-end-5">
+              <span class="kana-char"> う </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">u</span>
+            </button>
+            <button data-char="e" class="relative col-start-4 col-end-5 row-start-1 row-end-2 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-5 sm:col-end-6 sm:row-start-2 sm:row-end-3 md:text-4xl lg:col-start-11 lg:col-end-12 lg:row-start-5 lg:row-end-6">
+              <span class="kana-char"> え </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">e</span>
+            </button>
+            <button data-char="o" class="relative col-start-5 col-end-6 row-start-1 row-end-2 flex cursor-pointer items-center justify-center rounded-lg bg-slate-50 text-2xl text-slate-700 transition-all hover:bg-slate-50 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-sky-500 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800/20 sm:col-start-6 sm:col-end-7 sm:row-start-2 sm:row-end-3 md:text-4xl lg:col-start-11 lg:col-end-12 lg:row-start-6 lg:row-end-7">
+              <span class="kana-char"> お </span>
+              <span class="absolute top-full left-1/2 -translate-x-1/2 text-sm text-slate-500">o</span>
+            </button>
+          </div>
+          <div class="contents" id="vowels-col">
+            <div class="col-start-2 col-end-3 row-start-1 row-end-2 hidden self-end justify-self-center text-base text-slate-500 dark:text-slate-600 sm:block md:text-2xl lg:col-start-12 lg:col-end-13 lg:row-start-2 lg:row-end-3 lg:self-center">
+              a
+            </div>
+            <div class="col-start-3 col-end-4 row-start-1 row-end-2 hidden self-end justify-self-center text-base text-slate-500 dark:text-slate-600 sm:block md:text-2xl lg:col-start-12 lg:col-end-13 lg:row-start-3 lg:row-end-4 lg:self-center">
+              i
+            </div>
+            <div class="col-start-4 col-end-5 row-start-1 row-end-2 hidden self-end justify-self-center text-base text-slate-500 dark:text-slate-600 sm:block md:text-2xl lg:col-start-12 lg:col-end-13 lg:row-start-4 lg:row-end-5 lg:self-center">
+              u
+            </div>
+            <div class="col-start-5 col-end-6 row-start-1 row-end-2 hidden self-end justify-self-center text-base text-slate-500 dark:text-slate-600 sm:block md:text-2xl lg:col-start-12 lg:col-end-13 lg:row-start-5 lg:row-end-6 lg:self-center">
+              e
+            </div>
+            <div class="col-start-6 col-end-7 row-start-1 row-end-2 hidden self-end justify-self-center text-base text-slate-500 dark:text-slate-600 sm:block md:text-2xl lg:col-start-12 lg:col-end-13 lg:row-start-6 lg:row-end-7 lg:self-center">
+              o
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-slate-50 pt-8 pb-4 dark:bg-slate-900">
+      <p class="text-center text-xs text-slate-400 dark:text-slate-700">
+        Copyright &copy; <span id="year"></span> by CuryPD. All rights reserved.
+      </p>
+    </footer>
+    <div id="overlay" class="fixed top-0 left-0 z-40 hidden h-full w-full bg-gray-400/30 backdrop-blur-sm dark:bg-slate-900/60"></div>
+    <div id="modal" class="fixed top-1/2 left-1/2 z-50 hidden w-11/12 max-w-xl -translate-y-1/2 -translate-x-1/2 rounded-xl bg-white p-6 shadow-lg dark:bg-slate-800">
+      <!-- <button
+        id="btn-close-modal"
+        class="absolute top-0 right-0 -translate-x-2 translate-y-2"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 text-slate-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+      <form
+        action="#"
+        class="mb-6 flex items-center space-x-4 border-b border-slate-200 pb-3 dark:border-slate-700"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 text-slate-600"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          />
+        </svg>
+        <input
+          type="text"
+          placeholder="Search kana characters"
+          id="search-field"
+          class="w-5/6 bg-white text-sm text-slate-700 placeholder:text-slate-600 focus:outline-none dark:bg-slate-800 dark:text-slate-300 dark:placeholder:text-slate-500"
+        />
+      </form>
+      <div class="mb-6 sm:flex sm:items-center sm:space-x-8">
+        <div
+          class="mb-9 rounded-xl bg-slate-200 px-4 py-5 text-center dark:bg-slate-700 sm:mb-0"
+        >
+          <p
+            class="kana-char cursor-default text-8xl font-medium text-slate-800 dark:text-slate-50 md:text-9xl"
+          >
+            あ
+          </p>
+        </div>
+        <div class="text-center sm:text-left">
+          <p
+            class="mb-5 text-base leading-loose text-slate-800 dark:text-slate-300"
+          >
+            <span
+              class="kana-char rounded bg-slate-100 px-2 py-1 text-xl font-semibold text-sky-600 dark:bg-slate-900 dark:font-normal dark:text-sky-400 md:text-xl"
+              >あ</span
+            >
+            is pronounced like "a" in "c<span
+              class="mx-1 text-sky-600 dark:text-sky-400"
+              >a</span
+            >r"
+          </p>
+          <div
+            class="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:justify-between sm:space-y-0"
+          >
+            <figure class="flex items-center space-x-3">
+              <button
+                class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-300 hover:bg-slate-300/80 dark:bg-slate-900 dark:hover:bg-slate-900/80"
+              >
+                <i
+                  class="ph-play-fill text-xl text-slate-900 dark:text-lg dark:text-slate-300"
+                ></i>
+              </button>
+
+              <audio controls src="audio/kanasound-a.mp3"></audio>
+
+              <figcaption class="flex flex-col space-y-1">
+                <p class="kana-char text-slate-800 dark:text-slate-300">あ</p>
+                <p class="text-center text-slate-800 dark:text-slate-300">A</p>
+              </figcaption>
+            </figure>
+            <div id="variations" class="flex items-center space-x-3">
+              <p class="text-sm text-slate-500">Variations:</p>
+              <div class="flex space-x-1">
+                <span
+                  class="kana-char cursor-pointer rounded px-1 py-1 text-lg font-semibold text-slate-600 hover:text-slate-500 dark:font-normal dark:text-slate-300 dark:hover:text-slate-200 md:text-xl"
+                  >あ</span
+                >
+                <span
+                  class="kana-char cursor-pointer rounded px-1 py-1 text-lg font-semibold text-slate-600 hover:text-slate-500 dark:font-normal dark:text-slate-300 dark:hover:text-slate-200 md:text-xl"
+                  >あ</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer
+        class="flex flex-col space-y-3 border-t border-slate-200 pt-3 dark:border-slate-700 md:flex-row md:items-center md:justify-between md:space-y-0"
+      >
+        <p class="text-sm text-slate-600 dark:text-slate-500">
+          Currently learning:
+          <span class="text-sm font-medium text-slate-900 dark:text-slate-400"
+            >Hiragana</span
+          >
+        </p>
+        <p class="text-sm text-slate-600 dark:text-slate-500">
+          See the
+          <button
+            class="text-sm font-medium text-sky-600 underline hover:no-underline dark:text-sky-400"
+          >
+            Katakana version
+          </button>
+        </p>
+      </footer> -->
+    </div>
+  </body>
+</html>

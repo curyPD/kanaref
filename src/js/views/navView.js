@@ -15,7 +15,8 @@ const callback = function (entries, observer) {
         'top-0',
         'z-30',
         'bg-slate-50/90',
-        'dark:bg-slate-900/90'
+        'dark:bg-slate-900/80',
+        'backdrop-blur-sm'
       );
     nav.classList.remove('bg-slate-50', 'dark:bg-slate-900');
     if (entry.isIntersecting)
@@ -24,7 +25,8 @@ const callback = function (entries, observer) {
         'top-0',
         'z-30',
         'bg-slate-50/90',
-        'dark:bg-slate-900/90'
+        'dark:bg-slate-900/80',
+        'backdrop-blur-sm'
       );
     nav.classList.add('bg-slate-50', 'dark:bg-slate-900');
   });

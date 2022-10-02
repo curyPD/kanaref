@@ -8,7 +8,6 @@ const options = {
 
 const callback = function (entries, observer) {
   entries.forEach(entry => {
-    console.log(entry);
     if (!entry.isIntersecting)
       nav.classList.add(
         'sticky',
